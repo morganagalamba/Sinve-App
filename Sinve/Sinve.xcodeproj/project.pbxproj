@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2128E2503600940F7C /* ScannerViewController.swift */; };
+		D71C5A2428E250B300940F7C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProfileViewController.swift */; };
+		D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376D28DC052F00291AFE /* AppDelegate.swift */; };
+		D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376F28DC052F00291AFE /* SceneDelegate.swift */; };
+		D7DE377228DC052F00291AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE377128DC052F00291AFE /* ViewController.swift */; };
+		D7DE377528DC052F00291AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DE377328DC052F00291AFE /* Main.storyboard */; };
+		D7DE377728DC053000291AFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7DE377628DC053000291AFE /* Assets.xcassets */; };
+		D7DE377A28DC053000291AFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7DE377828DC053000291AFE /* LaunchScreen.storyboard */; };
+		D7DE378528DC053000291AFE /* SinveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE378428DC053000291AFE /* SinveTests.swift */; };
+		D7DE378F28DC053100291AFE /* SinveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE378E28DC053100291AFE /* SinveUITests.swift */; };
+		D7DE379128DC053100291AFE /* SinveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE379028DC053100291AFE /* SinveUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D7DE378128DC053000291AFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7DE376228DC052F00291AFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7DE376928DC052F00291AFE;
+			remoteInfo = Sinve;
+		};
+		D7DE378B28DC053100291AFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7DE376228DC052F00291AFE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7DE376928DC052F00291AFE;
+			remoteInfo = Sinve;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D71C5A2128E2503600940F7C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		D71C5A2328E250B300940F7C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D7DE376A28DC052F00291AFE /* Sinve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sinve.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7DE376D28DC052F00291AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D7DE376F28DC052F00291AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D7DE377128DC052F00291AFE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D7DE377428DC052F00291AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D7DE377628DC053000291AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D7DE377928DC053000291AFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D7DE377B28DC053000291AFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7DE378028DC053000291AFE /* SinveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7DE378428DC053000291AFE /* SinveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinveTests.swift; sourceTree = "<group>"; };
+		D7DE378A28DC053100291AFE /* SinveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7DE378E28DC053100291AFE /* SinveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinveUITests.swift; sourceTree = "<group>"; };
+		D7DE379028DC053100291AFE /* SinveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinveUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D7DE376728DC052F00291AFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DE377D28DC053000291AFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DE378728DC053100291AFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D7DE376128DC052F00291AFE = {
+			isa = PBXGroup;
+			children = (
+				D7DE376C28DC052F00291AFE /* Sinve */,
+				D7DE378328DC053000291AFE /* SinveTests */,
+				D7DE378D28DC053100291AFE /* SinveUITests */,
+				D7DE376B28DC052F00291AFE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D7DE376B28DC052F00291AFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D7DE376A28DC052F00291AFE /* Sinve.app */,
+				D7DE378028DC053000291AFE /* SinveTests.xctest */,
+				D7DE378A28DC053100291AFE /* SinveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D7DE376C28DC052F00291AFE /* Sinve */ = {
+			isa = PBXGroup;
+			children = (
+				D7DE376D28DC052F00291AFE /* AppDelegate.swift */,
+				D7DE376F28DC052F00291AFE /* SceneDelegate.swift */,
+				D7DE377128DC052F00291AFE /* ViewController.swift */,
+				D7DE377328DC052F00291AFE /* Main.storyboard */,
+				D7DE377628DC053000291AFE /* Assets.xcassets */,
+				D7DE377828DC053000291AFE /* LaunchScreen.storyboard */,
+				D7DE377B28DC053000291AFE /* Info.plist */,
+				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
+				D71C5A2328E250B300940F7C /* ProfileViewController.swift */,
+			);
+			path = Sinve;
+			sourceTree = "<group>";
+		};
+		D7DE378328DC053000291AFE /* SinveTests */ = {
+			isa = PBXGroup;
+			children = (
+				D7DE378428DC053000291AFE /* SinveTests.swift */,
+			);
+			path = SinveTests;
+			sourceTree = "<group>";
+		};
+		D7DE378D28DC053100291AFE /* SinveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D7DE378E28DC053100291AFE /* SinveUITests.swift */,
+				D7DE379028DC053100291AFE /* SinveUITestsLaunchTests.swift */,
+			);
+			path = SinveUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D7DE376928DC052F00291AFE /* Sinve */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7DE379428DC053100291AFE /* Build configuration list for PBXNativeTarget "Sinve" */;
+			buildPhases = (
+				D7DE376628DC052F00291AFE /* Sources */,
+				D7DE376728DC052F00291AFE /* Frameworks */,
+				D7DE376828DC052F00291AFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sinve;
+			productName = Sinve;
+			productReference = D7DE376A28DC052F00291AFE /* Sinve.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D7DE377F28DC053000291AFE /* SinveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7DE379728DC053100291AFE /* Build configuration list for PBXNativeTarget "SinveTests" */;
+			buildPhases = (
+				D7DE377C28DC053000291AFE /* Sources */,
+				D7DE377D28DC053000291AFE /* Frameworks */,
+				D7DE377E28DC053000291AFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7DE378228DC053000291AFE /* PBXTargetDependency */,
+			);
+			name = SinveTests;
+			productName = SinveTests;
+			productReference = D7DE378028DC053000291AFE /* SinveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D7DE378928DC053100291AFE /* SinveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D7DE379A28DC053100291AFE /* Build configuration list for PBXNativeTarget "SinveUITests" */;
+			buildPhases = (
+				D7DE378628DC053100291AFE /* Sources */,
+				D7DE378728DC053100291AFE /* Frameworks */,
+				D7DE378828DC053100291AFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7DE378C28DC053100291AFE /* PBXTargetDependency */,
+			);
+			name = SinveUITests;
+			productName = SinveUITests;
+			productReference = D7DE378A28DC053100291AFE /* SinveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D7DE376228DC052F00291AFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					D7DE376928DC052F00291AFE = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					D7DE377F28DC053000291AFE = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = D7DE376928DC052F00291AFE;
+					};
+					D7DE378928DC053100291AFE = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = D7DE376928DC052F00291AFE;
+					};
+				};
+			};
+			buildConfigurationList = D7DE376528DC052F00291AFE /* Build configuration list for PBXProject "Sinve" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D7DE376128DC052F00291AFE;
+			productRefGroup = D7DE376B28DC052F00291AFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D7DE376928DC052F00291AFE /* Sinve */,
+				D7DE377F28DC053000291AFE /* SinveTests */,
+				D7DE378928DC053100291AFE /* SinveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7DE376828DC052F00291AFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7DE377A28DC053000291AFE /* LaunchScreen.storyboard in Resources */,
+				D7DE377728DC053000291AFE /* Assets.xcassets in Resources */,
+				D7DE377528DC052F00291AFE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DE377E28DC053000291AFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DE378828DC053100291AFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D7DE376628DC052F00291AFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7DE377228DC052F00291AFE /* ViewController.swift in Sources */,
+				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
+				D71C5A2428E250B300940F7C /* ProfileViewController.swift in Sources */,
+				D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */,
+				D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DE377C28DC053000291AFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7DE378528DC053000291AFE /* SinveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D7DE378628DC053100291AFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D7DE379128DC053100291AFE /* SinveUITestsLaunchTests.swift in Sources */,
+				D7DE378F28DC053100291AFE /* SinveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D7DE378228DC053000291AFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7DE376928DC052F00291AFE /* Sinve */;
+			targetProxy = D7DE378128DC053000291AFE /* PBXContainerItemProxy */;
+		};
+		D7DE378C28DC053100291AFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D7DE376928DC052F00291AFE /* Sinve */;
+			targetProxy = D7DE378B28DC053100291AFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D7DE377328DC052F00291AFE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7DE377428DC052F00291AFE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D7DE377828DC053000291AFE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7DE377928DC053000291AFE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D7DE379228DC053100291AFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D7DE379328DC053100291AFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D7DE379528DC053100291AFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sinve/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.galamba.Sinve;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D7DE379628DC053100291AFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sinve/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.galamba.Sinve;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D7DE379828DC053100291AFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.galamba.SinveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sinve.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sinve";
+			};
+			name = Debug;
+		};
+		D7DE379928DC053100291AFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.galamba.SinveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sinve.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Sinve";
+			};
+			name = Release;
+		};
+		D7DE379B28DC053100291AFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.galamba.SinveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sinve;
+			};
+			name = Debug;
+		};
+		D7DE379C28DC053100291AFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28CMR6C7AZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.galamba.SinveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Sinve;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D7DE376528DC052F00291AFE /* Build configuration list for PBXProject "Sinve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7DE379228DC053100291AFE /* Debug */,
+				D7DE379328DC053100291AFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7DE379428DC053100291AFE /* Build configuration list for PBXNativeTarget "Sinve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7DE379528DC053100291AFE /* Debug */,
+				D7DE379628DC053100291AFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7DE379728DC053100291AFE /* Build configuration list for PBXNativeTarget "SinveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7DE379828DC053100291AFE /* Debug */,
+				D7DE379928DC053100291AFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D7DE379A28DC053100291AFE /* Build configuration list for PBXNativeTarget "SinveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7DE379B28DC053100291AFE /* Debug */,
+				D7DE379C28DC053100291AFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D7DE376228DC052F00291AFE /* Project object */;
+}
