@@ -8,56 +8,60 @@
 import UIKit
 import AVFoundation
 
+@objc protocol ScannerViewDelegate: class {
+    @objc func didFindScannedText(text: String)
+}
+
+
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var avCaptureSession: AVCaptureSession!
     var avPreviewLayer: AVCaptureVideoPreviewLayer!
+    
+    @objc public weak var delegate: ScannerViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor.black
         avCaptureSession = AVCaptureSession()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
-                print("Your device is not aplicablw for video processing")
-                return
-            }
-            let avVideoInput: AVCaptureDeviceInput
-            
-            do {
-                avVideoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-            } catch {
-                print("Your device can not give video input!")
-                return
-            }
-            
-            if (self.avCaptureSession.canAddInput(avVideoInput)) {
-                self.avCaptureSession.addInput(avVideoInput)
-            } else {
-                print("Your device can not add input in capture session")
-                return
-            }
-            
-            let metadataOutput = AVCaptureMetadataOutput()
-            
-            if (self.avCaptureSession.canAddOutput(metadataOutput)) {
-                self.avCaptureSession.addOutput(metadataOutput)
-                
-                metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-                metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .qr]
-            } else {
-                self.failed()
-                return
-            }
-            
-            self.avPreviewLayer = AVCaptureVideoPreviewLayer(session: self.avCaptureSession)
-            self.avPreviewLayer.frame = self.view.layer.bounds
-            self.avPreviewLayer.videoGravity = .resizeAspectFill
-            self.view.layer.addSublayer(self.avPreviewLayer)
-            self.avCaptureSession.startRunning()
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
+            print("Your device is not aplicablw for video processing")
+            return
         }
-        // Do any additional setup after loading the view.
+        let avVideoInput: AVCaptureDeviceInput
+        
+        do {
+            avVideoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
+            print("Your device can not give video input!")
+            return
+        }
+        
+        if (self.avCaptureSession.canAddInput(avVideoInput)) {
+            self.avCaptureSession.addInput(avVideoInput)
+        } else {
+            print("Your device can not add input in capture session")
+            return
+        }
+        
+        let metadataOutput = AVCaptureMetadataOutput()
+        
+        if (self.avCaptureSession.canAddOutput(metadataOutput)) {
+            self.avCaptureSession.addOutput(metadataOutput)
+            
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .qr]
+        } else {
+            self.failed()
+            return
+        }
+        
+        avPreviewLayer = AVCaptureVideoPreviewLayer(session: avCaptureSession)
+        avPreviewLayer.frame = view.layer.bounds
+        avPreviewLayer.videoGravity = .resizeAspectFill
+        view.layer.addSublayer(avPreviewLayer)
+        avCaptureSession.startRunning()
     }
     
 
@@ -104,7 +108,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
 }
 
-extension ViewController : AVCaptureMetadataOutputObjectsDelegate {
+extension ScannerViewController {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         avCaptureSession.stopRunning()
         
@@ -122,5 +126,7 @@ extension ViewController : AVCaptureMetadataOutputObjectsDelegate {
     
     func found(code: String) {
         print(code)
+        
+        delegate?.didFindScannedText(text: code)
     }
 }

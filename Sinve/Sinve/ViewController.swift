@@ -10,20 +10,18 @@ import AVFoundation
 
 class ViewController: UITabBarController, UITabBarControllerDelegate {
     
-    var avCaptureSession: AVCaptureSession!
-    var avPreviewLayer: AVCaptureVideoPreviewLayer!
+    let scannerViewController = ScannerViewController()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
+        scannerViewController.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let rootVc = ScannerViewController()
-        let tabOne = UINavigationController(rootViewController: rootVc)
+
+        let tabOne = UINavigationController(rootViewController: scannerViewController)
         let tabOneBarItem = UITabBarItem(title: "Vendas", image: UIImage(systemName: "square.grid.2x2"), selectedImage: UIImage(systemName: "square.grid.2x2.fill"))
         tabOne.tabBarItem = tabOneBarItem
         
@@ -37,5 +35,11 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         self.viewControllers = [tabOne, tabTwo]
     }
     
+}
+
+extension ViewController: ScannerViewDelegate {
+    func didFindScannedText(text: String) {
+       // coloca exibindo o negocio em algum canto
+    }
 }
 
