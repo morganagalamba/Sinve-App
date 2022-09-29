@@ -12,7 +12,6 @@ import AVFoundation
     @objc func didFindScannedText(text: String)
 }
 
-
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var avCaptureSession: AVCaptureSession!

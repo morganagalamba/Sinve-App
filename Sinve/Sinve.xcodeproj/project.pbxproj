@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2128E2503600940F7C /* ScannerViewController.swift */; };
 		D71C5A2428E250B300940F7C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProfileViewController.swift */; };
+		D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */; };
+		D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */; };
+		D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */; };
 		D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376D28DC052F00291AFE /* AppDelegate.swift */; };
 		D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376F28DC052F00291AFE /* SceneDelegate.swift */; };
 		D7DE377228DC052F00291AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE377128DC052F00291AFE /* ViewController.swift */; };
@@ -40,6 +43,9 @@
 /* Begin PBXFileReference section */
 		D71C5A2128E2503600940F7C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D71C5A2328E250B300940F7C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
+		D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalSaleTableViewController.swift; sourceTree = "<group>"; };
+		D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTableViewCell.swift; sourceTree = "<group>"; };
 		D7DE376A28DC052F00291AFE /* Sinve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sinve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DE376D28DC052F00291AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DE376F28DC052F00291AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +86,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D72ABF3328E5ED9800F12500 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D7DE376D28DC052F00291AFE /* AppDelegate.swift */,
+				D7DE376F28DC052F00291AFE /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D72ABF3428E5EDBA00F12500 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D72ABF3528E5EDD700F12500 /* Sale */,
+				D7DE377128DC052F00291AFE /* ViewController.swift */,
+				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
+				D71C5A2328E250B300940F7C /* ProfileViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D72ABF3528E5EDD700F12500 /* Sale */ = {
+			isa = PBXGroup;
+			children = (
+				D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */,
+				D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */,
+				D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */,
+			);
+			path = Sale;
+			sourceTree = "<group>";
+		};
 		D7DE376128DC052F00291AFE = {
 			isa = PBXGroup;
 			children = (
@@ -103,15 +139,12 @@
 		D7DE376C28DC052F00291AFE /* Sinve */ = {
 			isa = PBXGroup;
 			children = (
-				D7DE376D28DC052F00291AFE /* AppDelegate.swift */,
-				D7DE376F28DC052F00291AFE /* SceneDelegate.swift */,
-				D7DE377128DC052F00291AFE /* ViewController.swift */,
+				D72ABF3428E5EDBA00F12500 /* View */,
+				D72ABF3328E5ED9800F12500 /* App */,
 				D7DE377328DC052F00291AFE /* Main.storyboard */,
 				D7DE377628DC053000291AFE /* Assets.xcassets */,
 				D7DE377828DC053000291AFE /* LaunchScreen.storyboard */,
 				D7DE377B28DC053000291AFE /* Info.plist */,
-				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
-				D71C5A2328E250B300940F7C /* ProfileViewController.swift */,
 			);
 			path = Sinve;
 			sourceTree = "<group>";
@@ -265,9 +298,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7DE377228DC052F00291AFE /* ViewController.swift in Sources */,
+				D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */,
+				D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */,
 				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
 				D71C5A2428E250B300940F7C /* ProfileViewController.swift in Sources */,
 				D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */,
+				D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */,
 				D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
