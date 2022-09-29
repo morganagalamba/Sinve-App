@@ -98,6 +98,7 @@
 		D72ABF3428E5EDBA00F12500 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D72ABF3628E622FE00F12500 /* Model */,
 				D72ABF3528E5EDD700F12500 /* Sale */,
 				D7DE377128DC052F00291AFE /* ViewController.swift */,
 				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
@@ -114,6 +115,13 @@
 				D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */,
 			);
 			path = Sale;
+			sourceTree = "<group>";
+		};
+		D72ABF3628E622FE00F12500 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D7DE376128DC052F00291AFE = {

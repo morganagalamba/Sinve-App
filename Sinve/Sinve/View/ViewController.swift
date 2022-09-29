@@ -11,6 +11,7 @@ import AVFoundation
 class ViewController: UITabBarController, UITabBarControllerDelegate {
     
     let scannerViewController = ScannerViewController()
+    let saleViewController = SaleViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         
 
-        let tabOne = UINavigationController(rootViewController: scannerViewController)
+        let tabOne = UINavigationController(rootViewController: saleViewController)
         let tabOneBarItem = UITabBarItem(title: "Vendas", image: UIImage(systemName: "square.grid.2x2"), selectedImage: UIImage(systemName: "square.grid.2x2.fill"))
         tabOne.tabBarItem = tabOneBarItem
         

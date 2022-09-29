@@ -8,22 +8,31 @@
 import UIKit
 
 class SaleViewController: UIViewController {
+    
+    public let addSale: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .brown
+        button.setTitle("Nova venda", for: .normal)
+        button.addTarget(self, action:#selector(pressed), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.addSubview(addSale)
+        setupConstraints()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupConstraints(){
+        addSale.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        addSale.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-    */
+    
+    @objc func pressed() {
+        let view = ScannerViewController()
+        self.navigationController?.pushViewController(view, animated: true)
+    }
 
 }
