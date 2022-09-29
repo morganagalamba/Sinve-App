@@ -12,15 +12,16 @@ class SaleViewController: UIViewController {
     public let addSale: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .brown
         button.setTitle("Nova venda", for: .normal)
+        button.configuration = UIButton.Configuration.filled()
+        button.backgroundColor = UIColor(named: "BackGround")
         button.addTarget(self, action:#selector(pressed), for: .touchUpInside)
         return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = UIColor(named: "BackGround")
         view.addSubview(addSale)
         setupConstraints()
     }

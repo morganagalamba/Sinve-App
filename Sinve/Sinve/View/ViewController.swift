@@ -31,7 +31,8 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         let tabTwo = UINavigationController(rootViewController: rootVc2)
         let tabTwoBarItem2 = UITabBarItem(title: "Perfil", image: UIImage(systemName: "person.circle"), selectedImage: UIImage(systemName: "person.circle.fill"))
         tabTwo.tabBarItem = tabTwoBarItem2
-        
+    
+        self.tabBar.backgroundColor = UIColor(named: "TimberWolf")
         
         self.viewControllers = [tabOne, tabTwo]
     }
