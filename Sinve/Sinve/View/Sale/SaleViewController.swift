@@ -36,10 +36,7 @@ class SaleViewController: UIViewController {
         
         
         var view = ScannerViewController()
-        
-        //let vc = UINavigationController(rootViewController:view)
-        //vc.modalPresentationStyle = .overFullScreen
-        //self.present(vc, animated: true)
+        view.hidesBottomBarWhenPushed = true
         
         self.navigationController?.pushViewController(view, animated: true)
     }
