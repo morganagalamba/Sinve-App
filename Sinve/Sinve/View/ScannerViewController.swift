@@ -60,8 +60,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         avPreviewLayer.frame = view.layer.bounds
         avPreviewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(avPreviewLayer)
-        
+
         avCaptureSession.startRunning()
+        
+        setupConstraints()
+        
+    }
+    
+    private func setupConstraints(){
         
     }
     
@@ -95,10 +101,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
-
-}
-
-extension ScannerViewController {
+    
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         avCaptureSession.stopRunning()
         
@@ -116,7 +119,17 @@ extension ScannerViewController {
     
     func found(code: String) {
         print(code)
-        
         delegate?.didFindScannedText(text: code)
+        let view = FinalSaleTableViewController()
+        self.navigationController?.pushViewController(view, animated: true)
     }
+    
+    @objc func setAmount() {
+        
+    }
+    
+    @objc func getCode() {
+        
+    }
+
 }

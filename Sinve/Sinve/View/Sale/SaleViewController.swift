@@ -32,7 +32,13 @@ class SaleViewController: UIViewController {
     }
     
     @objc func pressed() {
-        let view = ScannerViewController()
+        
+        
+        var view = ScannerViewController()
+        //let vc = UINavigationController(rootViewController:view)
+        //vc.modalPresentationStyle = .overFullScreen
+        //self.present(vc, animated: true)
+        
         self.navigationController?.pushViewController(view, animated: true)
     }
 

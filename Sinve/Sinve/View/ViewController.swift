@@ -10,12 +10,12 @@ import AVFoundation
 
 class ViewController: UITabBarController, UITabBarControllerDelegate {
     
-    let scannerViewController = ScannerViewController()
+    
     let saleViewController = SaleViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scannerViewController.delegate = self
+        self.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,16 +32,11 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         let tabTwoBarItem2 = UITabBarItem(title: "Perfil", image: UIImage(systemName: "person.circle"), selectedImage: UIImage(systemName: "person.circle.fill"))
         tabTwo.tabBarItem = tabTwoBarItem2
     
-        self.tabBar.backgroundColor = UIColor(named: "TimberWolf")
+        self.tabBar.backgroundColor = UIColor(named: "BackGround")
         
         self.viewControllers = [tabOne, tabTwo]
     }
     
 }
 
-extension ViewController: ScannerViewDelegate {
-    func didFindScannedText(text: String) {
-       // coloca exibindo o negocio em algum canto
-    }
-}
 

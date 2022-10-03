@@ -9,14 +9,14 @@ import UIKit
 
 class FinalSaleTableViewController: UITableViewController {
     
+    var productsCount = 0
+    let scannerViewController = ScannerViewController()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(SaleTableViewCell.self, forCellReuseIdentifier: SaleTableViewCell.identifier)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        scannerViewController.delegate = self
+        view.backgroundColor = UIColor(named: "BackGround")
     }
 
     // MARK: - Table view data source
@@ -35,13 +35,20 @@ class FinalSaleTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SaleTableViewCell.identifier, for: indexPath) as? SaleTableViewCell else {
             return UITableViewCell()
         }
+        cell.selectionStyle = .none
         
-        //configurar cell
-        cell.product.text = ""
-        cell.quantidy.text = "" + "x"
-        cell.price.text = "R$" + ""
+        cell.product.text = "coco"
+        cell.quantidy.text = "2" + "x"
+        cell.price.text = "R$" + "2,00"
 
         return cell
     }
     
+}
+
+
+extension FinalSaleTableViewController: ScannerViewDelegate {
+    func didFindScannedText(text: String) {
+        productsCount += 1
+    }
 }
