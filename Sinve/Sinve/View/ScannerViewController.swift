@@ -8,16 +8,13 @@
 import UIKit
 import AVFoundation
 
-@objc protocol ScannerViewDelegate: class {
-    @objc func didFindScannedText(text: String)
-}
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var avCaptureSession: AVCaptureSession!
     var avPreviewLayer: AVCaptureVideoPreviewLayer!
+    var products: [String] = []
     
-    @objc public weak var delegate: ScannerViewDelegate?
     
     public let addquantidy: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
@@ -131,13 +128,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func found(code: String) {
         print(code)
-        delegate?.didFindScannedText(text: code)
-        let view = FinalSaleTableViewController()
-        self.navigationController?.pushViewController(view, animated: true)
+        products.append(code)
+        avCaptureSession.startRunning()
     }
     
     @objc func setAmount() {
         
+        let view = FinalSaleTableViewController(products: products)
+        self.navigationController?.pushViewController(view, animated: true)
     }
     
     @objc func getCode() {

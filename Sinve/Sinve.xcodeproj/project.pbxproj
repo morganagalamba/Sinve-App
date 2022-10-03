@@ -12,6 +12,7 @@
 		D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */; };
 		D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */; };
 		D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */; };
+		D79A426D28EB5CB6009D26F7 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A426C28EB5CB6009D26F7 /* Sale.swift */; };
 		D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376D28DC052F00291AFE /* AppDelegate.swift */; };
 		D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376F28DC052F00291AFE /* SceneDelegate.swift */; };
 		D7DE377228DC052F00291AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE377128DC052F00291AFE /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 		D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
 		D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalSaleTableViewController.swift; sourceTree = "<group>"; };
 		D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTableViewCell.swift; sourceTree = "<group>"; };
+		D79A426C28EB5CB6009D26F7 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		D7DE376A28DC052F00291AFE /* Sinve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sinve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DE376D28DC052F00291AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DE376F28DC052F00291AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		D72ABF3628E622FE00F12500 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D79A426C28EB5CB6009D26F7 /* Sale.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7DE377228DC052F00291AFE /* ViewController.swift in Sources */,
+				D79A426D28EB5CB6009D26F7 /* Sale.swift in Sources */,
 				D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */,
 				D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */,
 				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
