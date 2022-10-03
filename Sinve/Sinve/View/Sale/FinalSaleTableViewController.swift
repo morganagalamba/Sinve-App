@@ -9,10 +9,10 @@ import UIKit
 
 class FinalSaleTableViewController: UITableViewController {
     
-    var products: [String]?
+    var productsCount: [String : Int]
     
-    init(products: [String]? = nil) {
-        self.products = products
+    init(productsCount: [String : Int]) {
+        self.productsCount = productsCount
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,7 +36,7 @@ class FinalSaleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return products?.count ?? 0
+        return productsCount.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,8 +45,11 @@ class FinalSaleTableViewController: UITableViewController {
         }
         cell.selectionStyle = .none
         
-        cell.product.text = products?[indexPath.row]
-        cell.quantidy.text = "1" + "x"
+        let productBarcode = Array(productsCount.keys)
+        let quantidy = Array(productsCount.values)
+        
+        cell.product.text = productBarcode[indexPath.row]
+        cell.quantidy.text = String(quantidy[indexPath.row]) + "x"
         cell.price.text = "R$" + "2,00"
 
         return cell

@@ -22,7 +22,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         button.configuration = UIButton.Configuration.filled()
         button.setTitle("Ver carrinho", for: .normal)
         button.backgroundColor = UIColor.clear
-        button.addTarget(self, action:#selector(setAmount), for: .touchUpInside)
+        button.addTarget(self, action:#selector(finishScan), for: .touchUpInside)
         return button
     }()
 
@@ -132,14 +132,18 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         avCaptureSession.startRunning()
     }
     
-    @objc func setAmount() {
-        
-        let view = FinalSaleTableViewController(products: products)
-        self.navigationController?.pushViewController(view, animated: true)
+    func filterAmountProd() -> Dictionary<String, Int> {
+        let mappedItems = products.map { ($0, 1) }
+        let counts = Dictionary(mappedItems, uniquingKeysWith: +)
+        return counts
     }
     
-    @objc func getCode() {
+    @objc func finishScan() {
         
+        let sell = filterAmountProd()
+        let view = FinalSaleTableViewController(productsCount: sell)
+        self.navigationController?.pushViewController(view, animated: true)
     }
+
 
 }
