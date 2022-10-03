@@ -23,6 +23,7 @@ class FinalSaleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(SaleTableViewCell.self, forCellReuseIdentifier: SaleTableViewCell.identifier)
+        tableView.register(TotalView.self, forHeaderFooterViewReuseIdentifier: "header")
         self.title = "Carrinho"
         view.backgroundColor = UIColor(named: "BackGround")
     }
@@ -51,9 +52,25 @@ class FinalSaleTableViewController: UITableViewController {
         cell.product.text = productBarcode[indexPath.row]
         cell.quantidy.text = String(quantidy[indexPath.row]) + "x"
         let price = getPrice(prod: productBarcode[indexPath.row])
-        cell.price.text = price
+        cell.price.text = "R" + price
 
         return cell
+    }
+    
+    let cellView: UIView = {
+            let view = UIView()
+            view.backgroundColor = UIColor.red
+            view.layer.cornerRadius = 10
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+    }()
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! TotalView
+        view.total.text = "Valor total: "
+        view.price.text = "R$0,00"
+        
+        return view
     }
     
     func getPrice(prod: String) -> String{
