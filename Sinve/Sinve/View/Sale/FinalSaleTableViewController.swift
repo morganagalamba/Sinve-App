@@ -24,6 +24,7 @@ class FinalSaleTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(SaleTableViewCell.self, forCellReuseIdentifier: SaleTableViewCell.identifier)
         tableView.register(TotalView.self, forHeaderFooterViewReuseIdentifier: "header")
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Carrinho"
         view.backgroundColor = UIColor(named: "BackGround")
     }
@@ -57,14 +58,6 @@ class FinalSaleTableViewController: UITableViewController {
         return cell
     }
     
-    let cellView: UIView = {
-            let view = UIView()
-            view.backgroundColor = UIColor.red
-            view.layer.cornerRadius = 10
-            view.translatesAutoresizingMaskIntoConstraints = false
-            return view
-    }()
-    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! TotalView
         view.total.text = "Valor total: "
@@ -78,6 +71,8 @@ class FinalSaleTableViewController: UITableViewController {
         return price
     }
     
-    
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+
 }

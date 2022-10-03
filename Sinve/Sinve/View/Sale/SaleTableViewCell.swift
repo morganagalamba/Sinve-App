@@ -11,6 +11,15 @@ class SaleTableViewCell: UITableViewCell {
     
     static let identifier = "SaleTableViewCell"
     
+    
+    let cellView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "TimberWolf")
+        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     public var price: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -40,10 +49,15 @@ class SaleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.backgroundColor = UIColor(named: "BackGround")
+    
+        cellView.addSubview(quantidy)
+        cellView.addSubview(product)
+        cellView.addSubview(price)
+        contentView.addSubview(cellView)
         
-        contentView.addSubview(quantidy)
-        contentView.addSubview(product)
-        contentView.addSubview(price)
+//        contentView.addSubview(quantidy)
+//        contentView.addSubview(product)
+//        contentView.addSubview(price)
         
         
         setupConstraints()
@@ -78,6 +92,12 @@ class SaleTableViewCell: UITableViewCell {
             price.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
+        NSLayoutConstraint.activate([
+            cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 
 }
