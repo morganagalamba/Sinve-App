@@ -61,13 +61,18 @@ class FinalSaleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! TotalView
         view.total.text = "Valor total: "
-        view.price.text = "R$0,00"
+        view.price.text = "R" + getTotalPrice(prods: "")
         
         return view
     }
     
     func getPrice(prod: String) -> String{
         let price = NumberFormatter.localizedString(from: 2.50, number: .currency)
+        return price
+    }
+    
+    func getTotalPrice(prods: String) -> String{
+        let price = NumberFormatter.localizedString(from: 0.00, number: .currency)
         return price
     }
     

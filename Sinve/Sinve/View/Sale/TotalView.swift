@@ -12,6 +12,7 @@ class TotalView: UITableViewHeaderFooterView {
     public var total: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -19,6 +20,7 @@ class TotalView: UITableViewHeaderFooterView {
     public var price: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

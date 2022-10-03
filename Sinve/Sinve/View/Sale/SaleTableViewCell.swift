@@ -22,24 +22,24 @@ class SaleTableViewCell: UITableViewCell {
     
     public var price: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.text = "R$0"
+        label.textColor = UIColor(named: "PineTree")
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     public var product: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.text = "borracha"
+        label.textColor = UIColor(named: "PineTree")
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     public var quantidy: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.text = "2x"
+        label.textColor = UIColor(named: "PineTree")
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
