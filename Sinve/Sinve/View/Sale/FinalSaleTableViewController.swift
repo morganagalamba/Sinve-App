@@ -13,12 +13,12 @@ class FinalSaleTableViewController: UITableViewController {
     
     init(productsCount: [String : Int]) {
         self.productsCount = productsCount
-        super.init(nibName: nil, bundle: nil)
-    }
+        super.init(nibName: nil, bundle: nil)    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,15 +44,23 @@ class FinalSaleTableViewController: UITableViewController {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        
+        cell.backgroundColor = UIColor(named: "TimberWolf")
         let productBarcode = Array(productsCount.keys)
         let quantidy = Array(productsCount.values)
         
         cell.product.text = productBarcode[indexPath.row]
         cell.quantidy.text = String(quantidy[indexPath.row]) + "x"
-        cell.price.text = "R$" + "2,00"
+        let price = getPrice(prod: productBarcode[indexPath.row])
+        cell.price.text = price
 
         return cell
     }
+    
+    func getPrice(prod: String) -> String{
+        let price = NumberFormatter.localizedString(from: 2.50, number: .currency)
+        return price
+    }
+    
+    
     
 }
