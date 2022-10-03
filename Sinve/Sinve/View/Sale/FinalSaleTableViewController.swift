@@ -46,7 +46,7 @@ class FinalSaleTableViewController: UITableViewController {
         cell.selectionStyle = .none
         
         cell.product.text = products?[indexPath.row]
-        cell.quantidy.text = "2" + "x"
+        cell.quantidy.text = "1" + "x"
         cell.price.text = "R$" + "2,00"
 
         return cell

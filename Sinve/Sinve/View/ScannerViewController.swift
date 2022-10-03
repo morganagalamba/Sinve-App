@@ -20,7 +20,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = UIButton.Configuration.filled()
-        button.setTitle("Setar quantidade", for: .normal)
+        button.setTitle("Ver carrinho", for: .normal)
         button.backgroundColor = UIColor.clear
         button.addTarget(self, action:#selector(setAmount), for: .touchUpInside)
         return button
