@@ -23,6 +23,7 @@ class SaleViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BackGround")
         view.addSubview(addSale)
+        self.title = "Sinve"
         setupConstraints()
     }
     
@@ -35,6 +36,7 @@ class SaleViewController: UIViewController {
         
         
         var view = ScannerViewController()
+        
         //let vc = UINavigationController(rootViewController:view)
         //vc.modalPresentationStyle = .overFullScreen
         //self.present(vc, animated: true)

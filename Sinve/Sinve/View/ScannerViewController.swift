@@ -18,6 +18,16 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var avPreviewLayer: AVCaptureVideoPreviewLayer!
     
     @objc public weak var delegate: ScannerViewDelegate?
+    
+    public let addquantidy: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.configuration = UIButton.Configuration.filled()
+        button.setTitle("Setar quantidade", for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.addTarget(self, action:#selector(setAmount), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,15 +70,17 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         avPreviewLayer.frame = view.layer.bounds
         avPreviewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(avPreviewLayer)
-
-        avCaptureSession.startRunning()
-        
+        view.addSubview(addquantidy)
         setupConstraints()
+        avCaptureSession.startRunning()
         
     }
     
     private func setupConstraints(){
-        
+        NSLayoutConstraint.activate([
+            addquantidy.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addquantidy.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
+        ])
     }
     
     func failed() {

@@ -16,6 +16,7 @@ class FinalSaleTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(SaleTableViewCell.self, forCellReuseIdentifier: SaleTableViewCell.identifier)
         scannerViewController.delegate = self
+        self.title = "Carrinho"
         view.backgroundColor = UIColor(named: "BackGround")
     }
 
