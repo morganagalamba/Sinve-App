@@ -152,8 +152,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     let produto = try decoder.decode(Produto.self, from: data)
                     print(produto)
                     print(data)
-                    
-                    self.produtos.append(produto)
+                    if produto.nome != nil {
+                        self.produtos.append(produto)
+                        //emitir mensagem de erro
+                    }
                     
                 } catch {
                     print(error)
@@ -171,7 +173,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
         let sell = filterAmountProd()
-        let view = FinalSaleTableViewController(productsCount: sell)
+        let view = FinalSaleTableViewController(productsCount: sell, produtos: self.produtos )
         self.navigationController?.pushViewController(view, animated: true)
     }
 

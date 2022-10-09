@@ -10,9 +10,11 @@ import UIKit
 class FinalSaleTableViewController: UITableViewController {
     
     var productsCount: [String : Int]
+    var produtos: [Produto] = []
     
-    init(productsCount: [String : Int]) {
+    init(productsCount: [String : Int], produtos: [Produto]) {
         self.productsCount = productsCount
+        self.produtos = produtos
         super.init(nibName: nil, bundle: nil)    }
     
     required init?(coder: NSCoder) {
@@ -38,7 +40,7 @@ class FinalSaleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return productsCount.count
+        return produtos.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,10 +52,10 @@ class FinalSaleTableViewController: UITableViewController {
         let productBarcode = Array(productsCount.keys)
         let quantidy = Array(productsCount.values)
         
-        cell.product.text = productBarcode[indexPath.row]
+        cell.product.text = produtos[indexPath.row].nome
         cell.quantidy.text = String(quantidy[indexPath.row]) + "x"
-        let price = getPrice(prod: productBarcode[indexPath.row])
-        cell.price.text = "R" + price
+        let price = getPrice(prod: produtos[indexPath.row].precoPorUnidade ?? 0)
+        cell.price.text = price
 
         return cell
     }
@@ -66,8 +68,8 @@ class FinalSaleTableViewController: UITableViewController {
         return view
     }
     
-    func getPrice(prod: String) -> String{
-        let price = NumberFormatter.localizedString(from: 2.50, number: .currency)
+    func getPrice(prod: Int) -> String{
+        let price = NumberFormatter.localizedString(from: Float(prod) as NSNumber, number: .currency)
         return price
     }
     
