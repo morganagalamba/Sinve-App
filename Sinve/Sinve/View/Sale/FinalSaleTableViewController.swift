@@ -55,11 +55,10 @@ class FinalSaleTableViewController: UITableViewController {
                 cell.quantidy.text = "\(quantidy)x"
             }
             cell.product.text = name
-            
         }
-        
-        let price = getPrice(prod: produtos[indexPath.row].precoPorUnidade ?? 0)
-        cell.price.text = price
+        if let price = produtos[indexPath.row].precoPorUnidade {
+            cell.price.text = getPrice(prod: price)
+        }
 
         return cell
     }
@@ -67,8 +66,7 @@ class FinalSaleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! TotalView
         view.total.text = "Valor total: "
-        view.price.text = getTotalPrice(prods: "")
-        
+        view.price.text = getTotalPrice()
         return view
     }
     
@@ -77,8 +75,19 @@ class FinalSaleTableViewController: UITableViewController {
         return price
     }
     
-    func getTotalPrice(prods: String) -> String{
-        let price = NumberFormatter.localizedString(from: 0.00, number: .currency)
+    func getTotalPrice() -> String{
+        var totalPrice = 0
+        for produto in produtos{
+            if let name = produto.nome{
+                if let quantidy = productsCount[name] {
+                    if let price = produto.precoPorUnidade {
+                        totalPrice = totalPrice + price*quantidy
+                    }
+                }
+            }
+        }
+        let price = NumberFormatter.localizedString(from: Float(totalPrice) as NSNumber , number: .currency)
+        
         return price
     }
     
