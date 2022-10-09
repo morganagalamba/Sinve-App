@@ -7,14 +7,14 @@
 
 import UIKit
 import AVFoundation
-
+import Foundation
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var avCaptureSession: AVCaptureSession!
     var avPreviewLayer: AVCaptureVideoPreviewLayer!
-    var products: [String] = []
-    
+    var productsCode: [String] = []
+    var produtos: [Produto] = []
     
     public let addquantidy: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
@@ -127,18 +127,49 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func found(code: String) {
         print(code)
-        products.append(code)
+        getInfoProd(barCode: code)
         avCaptureSession.startRunning()
+        
     }
     
     func filterAmountProd() -> Dictionary<String, Int> {
-        let mappedItems = products.map { ($0, 1) }
+        let mappedItems = productsCode.map { ($0, 1) }
         let counts = Dictionary(mappedItems, uniquingKeysWith: +)
         return counts
     }
     
-    @objc func finishScan() {
+    func getInfoProd(barCode: String ){
+        guard let url = URL(string: "https://sinve-back-production.up.railway.app/produto/" + barCode) else{
+                return
+            }
         
+        let task = URLSession.shared.dataTask(with: url){
+            data, response, error in
+            
+            let decoder = JSONDecoder()
+            if let data = data {
+                do {
+                    let produto = try decoder.decode(Produto.self, from: data)
+                    print(produto)
+                    print(data)
+                    
+                    self.produtos.append(produto)
+                    
+                } catch {
+                    print(error)
+                }
+            }
+        }
+
+        task.resume()
+    }
+    
+    @objc func finishScan() {
+        for produto in produtos {
+            if let name = produto.nome{
+                self.productsCode.append(name)
+            }
+        }
         let sell = filterAmountProd()
         let view = FinalSaleTableViewController(productsCount: sell)
         self.navigationController?.pushViewController(view, animated: true)
