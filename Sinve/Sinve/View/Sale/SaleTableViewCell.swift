@@ -82,6 +82,7 @@ class SaleTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             product.leadingAnchor.constraint(equalTo: quantidy.trailingAnchor, constant: 16),
+            product.widthAnchor.constraint(equalToConstant: 250.0),
             product.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 16),
             product.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])

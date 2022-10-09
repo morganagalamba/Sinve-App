@@ -49,11 +49,15 @@ class FinalSaleTableViewController: UITableViewController {
         }
         cell.selectionStyle = .none
         cell.backgroundColor = UIColor(named: "TimberWolf")
-        let productBarcode = Array(productsCount.keys)
-        let quantidy = Array(productsCount.values)
         
-        cell.product.text = produtos[indexPath.row].nome
-        cell.quantidy.text = String(quantidy[indexPath.row]) + "x"
+        if let name = produtos[indexPath.row].nome{
+            if let quantidy = productsCount[name] {
+                cell.quantidy.text = "\(quantidy)x"
+            }
+            cell.product.text = name
+            
+        }
+        
         let price = getPrice(prod: produtos[indexPath.row].precoPorUnidade ?? 0)
         cell.price.text = price
 
@@ -63,7 +67,7 @@ class FinalSaleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! TotalView
         view.total.text = "Valor total: "
-        view.price.text = "R" + getTotalPrice(prods: "")
+        view.price.text = getTotalPrice(prods: "")
         
         return view
     }

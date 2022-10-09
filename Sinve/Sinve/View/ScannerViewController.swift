@@ -167,15 +167,30 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     @objc func finishScan() {
+        let correctArrayProd = produtos.removingDuplicates()
+        self.productsCode = []
         for produto in produtos {
             if let name = produto.nome{
                 self.productsCode.append(name)
             }
         }
         let sell = filterAmountProd()
-        let view = FinalSaleTableViewController(productsCount: sell, produtos: self.produtos )
+        let view = FinalSaleTableViewController(productsCount: sell, produtos: correctArrayProd )
         self.navigationController?.pushViewController(view, animated: true)
     }
 
 
+}
+
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+        return filter {
+            addedDict.updateValue(true, forKey: $0) == nil
+        }
+    }
+
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
 }
