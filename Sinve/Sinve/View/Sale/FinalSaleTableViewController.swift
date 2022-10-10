@@ -47,19 +47,19 @@ class FinalSaleTableViewController: UITableViewController {
         finalize.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 750).isActive = true
         finalize.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return produtos.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SaleTableViewCell.identifier, for: indexPath) as? SaleTableViewCell else {
             return UITableViewCell()
@@ -76,7 +76,7 @@ class FinalSaleTableViewController: UITableViewController {
         if let price = produtos[indexPath.row].precoPorUnidade {
             cell.price.text = getPrice(prod: price)
         }
-
+        
         return cell
     }
     
@@ -113,9 +113,50 @@ class FinalSaleTableViewController: UITableViewController {
     }
     
     @objc func finalizeSale() {
+        post()
         var view = PaymentViewController()
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)
     }
+    
+    func post(){
+        let baseURl = "https://sinve-back-production.up.railway.app/"
+        let path = "registro-de-venda"
+        
+        let produto = Venda(nome: "Marcador para retroprojetor Pilot 2.0mm", quantidade: 1, data: "09/10/2022")
 
+        let parametros: [String: Any] = [
+            "nome": produto.nome,
+            "data": produto.data,
+            "quantidade": produto.quantidade
+        ]
+        
+        guard let body = try? JSONSerialization.data(withJSONObject: parametros, options: []) else { return }
+        
+        guard let url = URL(string: baseURl + path) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+        
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let responde = response {
+                print(response)
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
+        
+    }
 }
