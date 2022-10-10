@@ -123,40 +123,47 @@ class FinalSaleTableViewController: UITableViewController {
         let baseURl = "https://sinve-back-production.up.railway.app/"
         let path = "registro-de-venda"
         
-        let produto = Venda(nome: "Marcador para retroprojetor Pilot 2.0mm", quantidade: 1, data: "09/10/2022")
-
-        let parametros: [String: Any] = [
-            "nome": produto.nome,
-            "data": produto.data,
-            "quantidade": produto.quantidade
-        ]
-        
-        guard let body = try? JSONSerialization.data(withJSONObject: parametros, options: []) else { return }
-        
-        guard let url = URL(string: baseURl + path) else { return }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = body
-        
-        
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if let responde = response {
-                print(response)
-            }
-            
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
+        for produto in produtos{
+            if let name = produto.nome{
+                if let quantidy = productsCount[name] {
+                    let produto = Venda(nome: name , quantidade: Int32(quantidy))
+                    
+                    let parametros: [String: Any] = [
+                        "nome": produto.nome,
+                        "quantidade": produto.quantidade
+                    ]
+                    
+                    guard let body = try? JSONSerialization.data(withJSONObject: parametros, options: []) else { return }
+                    
+                    guard let url = URL(string: baseURl + path) else { return }
+                    
+                    var request = URLRequest(url: url)
+                    request.httpMethod = "POST"
+                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.httpBody = body
+                    
+                    
+                    
+                    URLSession.shared.dataTask(with: request) { data, response, error in
+                        
+                        if let response = response {
+                            print(response)
+                        }
+                        
+                        if let data = data {
+                            do {
+                                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                                print(json)
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }.resume()
                 }
             }
-        }.resume()
+        }
+
+        
         
     }
 }
