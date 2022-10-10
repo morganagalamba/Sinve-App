@@ -43,7 +43,6 @@ class SaleViewController: UIViewController {
         
         var view = ScannerViewController()
         view.hidesBottomBarWhenPushed = true
-        
         self.navigationController?.pushViewController(view, animated: true)
     }
 

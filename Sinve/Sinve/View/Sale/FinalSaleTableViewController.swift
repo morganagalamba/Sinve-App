@@ -12,6 +12,16 @@ class FinalSaleTableViewController: UITableViewController {
     var productsCount: [String : Int]
     var produtos: [Produto] = []
     
+    public let finalize: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.configuration = UIButton.Configuration.filled()
+        button.setTitle("Finalizar compra", for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.addTarget(self, action:#selector(finalizeSale), for: .touchUpInside)
+        return button
+    }()
+    
     init(productsCount: [String : Int], produtos: [Produto]) {
         self.productsCount = productsCount
         self.produtos = produtos
@@ -29,6 +39,13 @@ class FinalSaleTableViewController: UITableViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Carrinho"
         view.backgroundColor = UIColor(named: "BackGround")
+        view.addSubview(finalize)
+        setupConstraints()
+    }
+    
+    private func setupConstraints(){
+        finalize.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 750).isActive = true
+        finalize.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
     // MARK: - Table view data source
@@ -93,6 +110,12 @@ class FinalSaleTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    @objc func finalizeSale() {
+        var view = PaymentViewController()
+        view.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(view, animated: true)
     }
 
 }
