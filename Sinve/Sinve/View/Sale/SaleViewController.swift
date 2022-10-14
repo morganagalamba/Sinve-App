@@ -24,12 +24,12 @@ class SaleViewController: UIViewController {
         view.backgroundColor = UIColor(named: "BackGround")
         view.addSubview(addSale)
         
-        let logo = UIImage(named: "logoName.png")
-        let imageView = UIImageView(image:logo)
-        imageView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = imageView
+//        let logo = UIImage(named: "logoName.png")
+//        let imageView = UIImageView(image:logo)
+//        imageView.contentMode = .scaleAspectFit
+//        self.navigationItem.titleView = imageView
         
-        self.title = "Sinve"
+        self.title = "Vendas"
         setupConstraints()
     }
     

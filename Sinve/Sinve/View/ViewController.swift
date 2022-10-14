@@ -11,7 +11,6 @@ import AVFoundation
 class ViewController: UITabBarController, UITabBarControllerDelegate {
     
     
-    let saleViewController = SaleViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,19 +21,24 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         
 
-        let tabOne = UINavigationController(rootViewController: saleViewController)
-        let tabOneBarItem = UITabBarItem(title: "Vendas", image: UIImage(systemName: "square.grid.2x2"), selectedImage: UIImage(systemName: "square.grid.2x2.fill"))
+        let tabOne = UINavigationController(rootViewController: StorageViewController())
+        let tabOneBarItem = UITabBarItem(title: "Estoque", image: UIImage(systemName: "shippingbox"), selectedImage: UIImage(systemName: "shippingbox.fill"))
         tabOne.tabBarItem = tabOneBarItem
         
         
-        let rootVc2 = ProfileViewController()
-        let tabTwo = UINavigationController(rootViewController: rootVc2)
-        let tabTwoBarItem2 = UITabBarItem(title: "Perfil", image: UIImage(systemName: "person.circle"), selectedImage: UIImage(systemName: "person.circle.fill"))
+
+        let tabTwo = UINavigationController(rootViewController: SaleViewController())
+        let tabTwoBarItem2 = UITabBarItem(title: "Vendas", image: UIImage(systemName: "square.grid.2x2"), selectedImage: UIImage(systemName: "square.grid.2x2.fill"))
         tabTwo.tabBarItem = tabTwoBarItem2
+        
+        
+        let tabThree = UINavigationController(rootViewController: ProviderViewController())
+        let tabTwoBarItem3 = UITabBarItem(title: "Fornecedores", image: UIImage(systemName: "box.truck"), selectedImage: UIImage(systemName: "box.truck.fill"))
+        tabThree.tabBarItem = tabTwoBarItem3
     
         self.tabBar.backgroundColor = UIColor(named: "BackGround")
         
-        self.viewControllers = [tabOne, tabTwo]
+        self.viewControllers = [tabOne, tabTwo, tabThree]
     }
     
 }

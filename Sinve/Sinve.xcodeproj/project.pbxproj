@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2128E2503600940F7C /* ScannerViewController.swift */; };
-		D71C5A2428E250B300940F7C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProfileViewController.swift */; };
+		D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProviderViewController.swift */; };
 		D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */; };
 		D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */; };
 		D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */; };
@@ -26,6 +26,7 @@
 		D7DE378528DC053000291AFE /* SinveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE378428DC053000291AFE /* SinveTests.swift */; };
 		D7DE378F28DC053100291AFE /* SinveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE378E28DC053100291AFE /* SinveUITests.swift */; };
 		D7DE379128DC053100291AFE /* SinveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE379028DC053100291AFE /* SinveUITestsLaunchTests.swift */; };
+		D7E5216028F9E2D5007078AC /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5215F28F9E2D5007078AC /* StorageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		D71C5A2128E2503600940F7C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		D71C5A2328E250B300940F7C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D71C5A2328E250B300940F7C /* ProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewController.swift; sourceTree = "<group>"; };
 		D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
 		D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalSaleTableViewController.swift; sourceTree = "<group>"; };
 		D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		D7DE378A28DC053100291AFE /* SinveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SinveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DE378E28DC053100291AFE /* SinveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinveUITests.swift; sourceTree = "<group>"; };
 		D7DE379028DC053100291AFE /* SinveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinveUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D7E5215F28F9E2D5007078AC /* StorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +113,9 @@
 				D72ABF3528E5EDD700F12500 /* Sale */,
 				D7DE377128DC052F00291AFE /* ViewController.swift */,
 				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
-				D71C5A2328E250B300940F7C /* ProfileViewController.swift */,
+				D71C5A2328E250B300940F7C /* ProviderViewController.swift */,
 				D765841128F3A9A400A33C38 /* PaymentViewController.swift */,
+				D7E5215F28F9E2D5007078AC /* StorageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,9 +330,10 @@
 				D79A426F28EBA217009D26F7 /* TotalView.swift in Sources */,
 				D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */,
 				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
-				D71C5A2428E250B300940F7C /* ProfileViewController.swift in Sources */,
+				D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */,
 				D765841228F3A9A400A33C38 /* PaymentViewController.swift in Sources */,
 				D765841028F31F3E00A33C38 /* Produto.swift in Sources */,
+				D7E5216028F9E2D5007078AC /* StorageViewController.swift in Sources */,
 				D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */,
 				D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */,
 				D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */,
