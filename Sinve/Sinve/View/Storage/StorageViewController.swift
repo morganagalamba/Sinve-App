@@ -8,17 +8,21 @@
 import UIKit
 
 class StorageViewController: UITableViewController {
+    
+    var estoque: [Estoque] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fillStorage()
         tableView.register(StorageTableViewCell.self, forCellReuseIdentifier: StorageTableViewCell.identifier)
         view.backgroundColor = UIColor(named: "BackGround")
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Estoque"
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        return estoque.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -26,15 +30,34 @@ class StorageViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.productName.text = "Caderno tilibra Minnie 80"
-        cell.quantidy.text = "50"
-        cell.quantidyIdeal.text = "30"
+        cell.productName.text = estoque[indexPath.row].nome
+        cell.quantidy.text = String(estoque[indexPath.row].quantidade)
+        cell.quantidyIdeal.text = String(estoque[indexPath.row].estoqueIdeal)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func fillStorage(){
+        let url = URL(string: "https://sinve-back-production.up.railway.app/estoque-ideal")!
+        let request = URLRequest(url: url)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+            if let result = try? JSONDecoder().decode([Estoque].self, from: data!) {
+                self.estoque = result
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } else {
+                print("Erro ao decodificar dados da API")
+            }
+            
+        }
+        task.resume()
+    
     }
 
 }
