@@ -68,8 +68,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         view.layer.addSublayer(avPreviewLayer)
         view.addSubview(addquantidy)
         setupConstraints()
-        avCaptureSession.startRunning()
-        
+        DispatchQueue.main.async {
+            self.avCaptureSession.startRunning()
+        }
     }
     
     private func setupConstraints(){
@@ -128,8 +129,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func found(code: String) {
         print(code)
         getInfoProd(barCode: code)
-        avCaptureSession.startRunning()
-        
+        self.avCaptureSession.startRunning()
     }
     
     func filterAmountProd() -> Dictionary<String, Int> {

@@ -19,6 +19,8 @@
 		D79A426F28EBA217009D26F7 /* TotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A426E28EBA217009D26F7 /* TotalView.swift */; };
 		D7B8CFF828FEFF28004050BE /* StorageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CFF728FEFF28004050BE /* StorageTableViewCell.swift */; };
 		D7B8CFFA28FF2C61004050BE /* Estoque.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CFF928FF2C61004050BE /* Estoque.swift */; };
+		D7B8CFFC28FF3F3A004050BE /* ProviderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CFFB28FF3F3A004050BE /* ProviderTableViewCell.swift */; };
+		D7B8CFFE28FF4065004050BE /* Fornecedor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CFFD28FF4065004050BE /* Fornecedor.swift */; };
 		D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376D28DC052F00291AFE /* AppDelegate.swift */; };
 		D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376F28DC052F00291AFE /* SceneDelegate.swift */; };
 		D7DE377228DC052F00291AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE377128DC052F00291AFE /* ViewController.swift */; };
@@ -61,6 +63,8 @@
 		D79A426E28EBA217009D26F7 /* TotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalView.swift; sourceTree = "<group>"; };
 		D7B8CFF728FEFF28004050BE /* StorageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTableViewCell.swift; sourceTree = "<group>"; };
 		D7B8CFF928FF2C61004050BE /* Estoque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Estoque.swift; sourceTree = "<group>"; };
+		D7B8CFFB28FF3F3A004050BE /* ProviderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderTableViewCell.swift; sourceTree = "<group>"; };
+		D7B8CFFD28FF4065004050BE /* Fornecedor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fornecedor.swift; sourceTree = "<group>"; };
 		D7DE376A28DC052F00291AFE /* Sinve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sinve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DE376D28DC052F00291AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DE376F28DC052F00291AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				D765840F28F31F3E00A33C38 /* Produto.swift */,
 				D765841328F3B16F00A33C38 /* Venda.swift */,
 				D7B8CFF928FF2C61004050BE /* Estoque.swift */,
+				D7B8CFFD28FF4065004050BE /* Fornecedor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				D71C5A2328E250B300940F7C /* ProviderViewController.swift */,
+				D7B8CFFB28FF3F3A004050BE /* ProviderTableViewCell.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -348,12 +354,14 @@
 				D7DE377228DC052F00291AFE /* ViewController.swift in Sources */,
 				D765841428F3B16F00A33C38 /* Venda.swift in Sources */,
 				D79A426D28EB5CB6009D26F7 /* Sale.swift in Sources */,
+				D7B8CFFC28FF3F3A004050BE /* ProviderTableViewCell.swift in Sources */,
 				D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */,
 				D79A426F28EBA217009D26F7 /* TotalView.swift in Sources */,
 				D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */,
 				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
 				D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */,
 				D765841228F3A9A400A33C38 /* PaymentViewController.swift in Sources */,
+				D7B8CFFE28FF4065004050BE /* Fornecedor.swift in Sources */,
 				D765841028F31F3E00A33C38 /* Produto.swift in Sources */,
 				D7B8CFF828FEFF28004050BE /* StorageTableViewCell.swift in Sources */,
 				D7E5216028F9E2D5007078AC /* StorageViewController.swift in Sources */,
