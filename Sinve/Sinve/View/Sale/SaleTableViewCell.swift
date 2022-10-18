@@ -15,7 +15,6 @@ class SaleTableViewCell: UITableViewCell {
     let cellView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(named: "TimberWolf")
-        view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -71,7 +70,7 @@ class SaleTableViewCell: UITableViewCell {
     private func setupConstraints(){
         NSLayoutConstraint.activate([
             quantidy.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            quantidy.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 16),
+            quantidy.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
             quantidy.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
@@ -90,8 +89,8 @@ class SaleTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
