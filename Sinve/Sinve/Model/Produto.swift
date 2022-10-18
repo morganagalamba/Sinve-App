@@ -17,6 +17,6 @@ struct Produto: Codable, Hashable {
         case id = "id"
         case nome = "nome"
         case categoria = "categoria"
-        case precoPorUnidade = "precoPorUnidade"
+        case precoPorUnidade = "precoDeVenda"
     }
 }
