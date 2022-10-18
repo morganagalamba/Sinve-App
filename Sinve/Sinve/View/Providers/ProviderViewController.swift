@@ -13,7 +13,7 @@ class ProviderViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //fillProvider()
+        fillProvider()
         tableView.register(ProviderTableViewCell.self, forCellReuseIdentifier: ProviderTableViewCell.identifier)
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         view.backgroundColor = UIColor(named: "BackGround")
@@ -21,7 +21,7 @@ class ProviderViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return fornecedores.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,13 +29,13 @@ class ProviderViewController: UITableViewController {
             return UITableViewCell()
         }
         
-//        cell.company.text = fornecedores[indexPath.row].nomeFantasia
-//        cell.cnpjNumber.text = fornecedores[indexPath.row].cnpj
-//        cell.days.text = String(fornecedores[indexPath.row].prazoEntrega)
+        cell.company.text = fornecedores[indexPath.row].nomeFantasia
+        cell.cnpjNumber.text = fornecedores[indexPath.row].cnpj
+        cell.days.text = String(fornecedores[indexPath.row].prazoEntrega) + " dias"
         
-        cell.company.text = "Ativa produtos veterinários"
-        cell.cnpjNumber.text = "0918138319/001"
-        cell.days.text = "30 dias"
+//        cell.company.text = "Ativa produtos veterinários"
+//        cell.cnpjNumber.text = "0918138319/001"
+//        cell.days.text = "30 dias"
         
         return cell
     }
@@ -55,6 +55,7 @@ class ProviderViewController: UITableViewController {
                 do {
                     let result = try decoder.decode([Fornecedor].self, from: data)
                     self.fornecedores = result
+                    print(result)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
