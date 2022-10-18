@@ -30,6 +30,7 @@ class SaleViewController: UIViewController {
 //        self.navigationItem.titleView = imageView
         
         self.title = "Vendas"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         setupConstraints()
     }
     

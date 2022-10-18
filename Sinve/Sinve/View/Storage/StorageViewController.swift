@@ -19,6 +19,7 @@ class StorageViewController: UITableViewController {
         navigationItem.searchController =  searchBar
         tableView.register(StorageTableViewCell.self, forCellReuseIdentifier: StorageTableViewCell.identifier)
         view.backgroundColor = UIColor(named: "BackGround")
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Estoque"
         

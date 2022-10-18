@@ -18,6 +18,7 @@ class ProviderViewController: UITableViewController {
         searchBar.searchResultsUpdater = self
         navigationItem.searchController =  searchBar
         tableView.register(ProviderTableViewCell.self, forCellReuseIdentifier: ProviderTableViewCell.identifier)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         view.backgroundColor = UIColor(named: "BackGround")
         self.title = "Fornecedores"
