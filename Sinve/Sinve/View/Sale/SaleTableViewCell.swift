@@ -54,12 +54,7 @@ class SaleTableViewCell: UITableViewCell {
         cellView.addSubview(product)
         cellView.addSubview(price)
         contentView.addSubview(cellView)
-        
-//        contentView.addSubview(quantidy)
-//        contentView.addSubview(product)
-//        contentView.addSubview(price)
-        
-        
+    
         setupConstraints()
     }
   

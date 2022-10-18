@@ -17,6 +17,7 @@
 		D765841428F3B16F00A33C38 /* Venda.swift in Sources */ = {isa = PBXBuildFile; fileRef = D765841328F3B16F00A33C38 /* Venda.swift */; };
 		D79A426D28EB5CB6009D26F7 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A426C28EB5CB6009D26F7 /* Sale.swift */; };
 		D79A426F28EBA217009D26F7 /* TotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79A426E28EBA217009D26F7 /* TotalView.swift */; };
+		D7B8CFF828FEFF28004050BE /* StorageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B8CFF728FEFF28004050BE /* StorageTableViewCell.swift */; };
 		D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376D28DC052F00291AFE /* AppDelegate.swift */; };
 		D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE376F28DC052F00291AFE /* SceneDelegate.swift */; };
 		D7DE377228DC052F00291AFE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE377128DC052F00291AFE /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		D765841328F3B16F00A33C38 /* Venda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venda.swift; sourceTree = "<group>"; };
 		D79A426C28EB5CB6009D26F7 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		D79A426E28EBA217009D26F7 /* TotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalView.swift; sourceTree = "<group>"; };
+		D7B8CFF728FEFF28004050BE /* StorageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTableViewCell.swift; sourceTree = "<group>"; };
 		D7DE376A28DC052F00291AFE /* Sinve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sinve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DE376D28DC052F00291AFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DE376F28DC052F00291AFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,12 +112,10 @@
 		D72ABF3428E5EDBA00F12500 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D7B8CFF628FEFED0004050BE /* Providers */,
+				D7B8CFF528FEFEA7004050BE /* Storage */,
 				D72ABF3528E5EDD700F12500 /* Sale */,
 				D7DE377128DC052F00291AFE /* ViewController.swift */,
-				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
-				D71C5A2328E250B300940F7C /* ProviderViewController.swift */,
-				D765841128F3A9A400A33C38 /* PaymentViewController.swift */,
-				D7E5215F28F9E2D5007078AC /* StorageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,9 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */,
+				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
 				D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */,
 				D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */,
 				D79A426E28EBA217009D26F7 /* TotalView.swift */,
+				D765841128F3A9A400A33C38 /* PaymentViewController.swift */,
 			);
 			path = Sale;
 			sourceTree = "<group>";
@@ -139,6 +141,23 @@
 				D765841328F3B16F00A33C38 /* Venda.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D7B8CFF528FEFEA7004050BE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D7E5215F28F9E2D5007078AC /* StorageViewController.swift */,
+				D7B8CFF728FEFF28004050BE /* StorageTableViewCell.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		D7B8CFF628FEFED0004050BE /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				D71C5A2328E250B300940F7C /* ProviderViewController.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		D7DE376128DC052F00291AFE = {
@@ -333,6 +352,7 @@
 				D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */,
 				D765841228F3A9A400A33C38 /* PaymentViewController.swift in Sources */,
 				D765841028F31F3E00A33C38 /* Produto.swift in Sources */,
+				D7B8CFF828FEFF28004050BE /* StorageTableViewCell.swift in Sources */,
 				D7E5216028F9E2D5007078AC /* StorageViewController.swift in Sources */,
 				D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */,
 				D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */,
