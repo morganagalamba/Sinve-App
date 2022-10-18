@@ -9,11 +9,14 @@ import UIKit
 
 class StorageViewController: UITableViewController {
     
+    let searchBar:UISearchController = UISearchController()
     var estoque: [Estoque] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fillStorage()
+        searchBar.searchResultsUpdater = self
+        navigationItem.searchController =  searchBar
         tableView.register(StorageTableViewCell.self, forCellReuseIdentifier: StorageTableViewCell.identifier)
         view.backgroundColor = UIColor(named: "BackGround")
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -60,4 +63,16 @@ class StorageViewController: UITableViewController {
     
     }
 
+}
+
+extension StorageViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchBar.searchBar.text else {
+            return
+        }
+        //usar text pra procurar
+        self.tableView.reloadData()
+    }
+    
+    
 }

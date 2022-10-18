@@ -9,11 +9,14 @@ import UIKit
 
 class ProviderViewController: UITableViewController {
     
+    let searchBar:UISearchController = UISearchController()
     var fornecedores: [Fornecedor] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fillProvider()
+        searchBar.searchResultsUpdater = self
+        navigationItem.searchController =  searchBar
         tableView.register(ProviderTableViewCell.self, forCellReuseIdentifier: ProviderTableViewCell.identifier)
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         view.backgroundColor = UIColor(named: "BackGround")
@@ -67,6 +70,18 @@ class ProviderViewController: UITableViewController {
         }
         task.resume()
     
+    }
+
+}
+
+
+extension ProviderViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchBar.searchBar.text else {
+            return
+        }
+        //usar text pra procurar
+        self.tableView.reloadData()
     }
 
 }
