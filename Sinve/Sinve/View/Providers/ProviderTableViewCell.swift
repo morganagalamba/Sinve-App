@@ -104,7 +104,7 @@ class ProviderTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             company.leadingAnchor.constraint(equalTo: name.leadingAnchor),
-            company.widthAnchor.constraint(equalToConstant: contentView.bounds.width/2),
+            company.widthAnchor.constraint(equalToConstant: contentView.bounds.width/2 - 4),
             company.topAnchor.constraint(equalTo: name.bottomAnchor,constant: 6),
         ])
         
@@ -119,7 +119,7 @@ class ProviderTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            deliver.leadingAnchor.constraint(equalTo: company.trailingAnchor, constant: 40),
+            deliver.leadingAnchor.constraint(equalTo: company.trailingAnchor),
             deliver.topAnchor.constraint(equalTo: cellView.topAnchor,constant: 24),
         ])
         
