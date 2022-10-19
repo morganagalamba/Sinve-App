@@ -11,6 +11,16 @@ class ProviderViewController: UITableViewController {
     
     let searchBar:UISearchController = UISearchController()
     var fornecedores: [Fornecedor] = []
+    
+    public let addProvider: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Cadastrar Fornecedor", for: .normal)
+        button.configuration = UIButton.Configuration.filled()
+        button.backgroundColor = UIColor(named: "BackGround")
+        button.addTarget(self, action:#selector(addProv), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +32,13 @@ class ProviderViewController: UITableViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         view.backgroundColor = UIColor(named: "BackGround")
         self.title = "Fornecedores"
+        view.addSubview(addProvider)
+        setupConstraints()
+    }
+    
+    func setupConstraints(){
+        addProvider.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 600).isActive = true
+        addProvider.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,9 +54,6 @@ class ProviderViewController: UITableViewController {
         cell.cnpjNumber.text = fornecedores[indexPath.row].cnpj
         cell.days.text = String(fornecedores[indexPath.row].prazoEntrega) + " dias"
         cell.number = fornecedores[indexPath.row].telefone
-//        cell.company.text = "Ativa produtos veterinários"
-//        cell.cnpjNumber.text = "0918138319/001"
-//        cell.days.text = "30 dias"
         
         return cell
     }
@@ -71,6 +85,12 @@ class ProviderViewController: UITableViewController {
         }
         task.resume()
     
+    }
+    
+    @objc func addProv(){
+        var view = AddProviderViewController()
+        view.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(view, animated: true)
     }
 
 }

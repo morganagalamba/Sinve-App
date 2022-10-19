@@ -11,6 +11,16 @@ class StorageViewController: UITableViewController {
     
     let searchBar:UISearchController = UISearchController()
     var estoque: [Estoque] = []
+    
+    public let addProduct: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Cadastrar Produto", for: .normal)
+        button.configuration = UIButton.Configuration.filled()
+        button.backgroundColor = UIColor(named: "BackGround")
+        button.addTarget(self, action:#selector(addProd), for: .touchUpInside)
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +32,14 @@ class StorageViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Estoque"
+        view.addSubview(addProduct)
+        setupConstraints()
         
+    }
+    
+    func setupConstraints(){
+        addProduct.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 600).isActive = true
+        addProduct.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +107,12 @@ class StorageViewController: UITableViewController {
         }
         task.resume()
     
+    }
+    
+    @objc func addProd() {
+        var view = AddProductViewController()
+        view.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(view, animated: true)
     }
 
 }
