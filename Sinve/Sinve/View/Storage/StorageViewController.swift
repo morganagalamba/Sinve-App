@@ -34,9 +34,37 @@ class StorageViewController: UITableViewController {
             return UITableViewCell()
         }
         
+        let idealQuantidy = estoque[indexPath.row].estoqueIdeal
+        let quantidy = estoque[indexPath.row].quantidade
+        cell.quantidy.text = String(quantidy)
+        
+        let symbolConfig = UIImage.SymbolConfiguration(pointSize: 10 , weight: .bold, scale: .small)
+        let fullString = NSMutableAttributedString(string: String(quantidy) + "  ")
+        
+        if quantidy > idealQuantidy {
+            cell.quantidyView.backgroundColor = UIColor(named: "lilac")
+
+            let symbol = UIImage(systemName: "arrowtriangle.up.fill", withConfiguration: symbolConfig)
+            
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = symbol
+            fullString.append(NSAttributedString(attachment: imageAttachment))
+            cell.quantidy.attributedText = fullString
+            
+        } else if quantidy < idealQuantidy {
+            cell.quantidyView.backgroundColor = UIColor(named: "blue")
+            
+            let symbol = UIImage(systemName: "arrowtriangle.down.fill", withConfiguration: symbolConfig)
+            
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = symbol
+            fullString.append(NSAttributedString(attachment: imageAttachment))
+            cell.quantidy.attributedText = fullString
+        }
+        
         cell.productName.text = estoque[indexPath.row].nome
-        cell.quantidy.text = String(estoque[indexPath.row].quantidade)
-        cell.quantidyIdeal.text = String(estoque[indexPath.row].estoqueIdeal)
+        
+        cell.quantidyIdeal.text = String(idealQuantidy)
         
         return cell
     }

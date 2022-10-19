@@ -19,6 +19,22 @@ class StorageTableViewCell: UITableViewCell {
         return view
     }()
     
+    let quantidyView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "BackGround")
+        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let quantidyIdealView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "BackGround")
+        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     public var productLabel: UILabel = {
         let label = UILabel()
         label.text = "Produto"
@@ -76,6 +92,8 @@ class StorageTableViewCell: UITableViewCell {
         contentView.addSubview(cellView)
         contentView.addSubview(productLabel)
         contentView.addSubview(productName)
+        contentView.addSubview(quantidyView)
+        contentView.addSubview(quantidyIdealView)
         contentView.addSubview(quantidyLabel)
         contentView.addSubview(quantidy)
         contentView.addSubview(quantidyIdealLabel)
@@ -114,8 +132,15 @@ class StorageTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            quantidy.leadingAnchor.constraint(equalTo: quantidyLabel.leadingAnchor),
-            quantidy.topAnchor.constraint(equalTo: quantidyLabel.bottomAnchor ,constant: 8),
+            quantidyView.leadingAnchor.constraint(equalTo: quantidyLabel.leadingAnchor),
+            quantidyView.topAnchor.constraint(equalTo: quantidyLabel.bottomAnchor ,constant: 8),
+            quantidyView.widthAnchor.constraint(equalToConstant: 66),
+            quantidyView.heightAnchor.constraint(equalToConstant: 25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            quantidy.centerXAnchor.constraint(equalTo: quantidyView.centerXAnchor),
+            quantidy.centerYAnchor.constraint(equalTo:quantidyView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -124,8 +149,15 @@ class StorageTableViewCell: UITableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            quantidyIdeal.leadingAnchor.constraint(equalTo: quantidyIdealLabel.leadingAnchor),
-            quantidyIdeal.topAnchor.constraint(equalTo: quantidyIdealLabel.bottomAnchor,constant: 8)
+            quantidyIdealView.leadingAnchor.constraint(equalTo: quantidyIdealLabel.leadingAnchor),
+            quantidyIdealView.topAnchor.constraint(equalTo: quantidyIdealLabel.bottomAnchor,constant: 8),
+            quantidyIdealView.widthAnchor.constraint(equalToConstant: 66),
+            quantidyIdealView.heightAnchor.constraint(equalToConstant: 25)
+        ])
+        
+        NSLayoutConstraint.activate([
+            quantidyIdeal.centerXAnchor.constraint(equalTo: quantidyIdealView.centerXAnchor),
+            quantidyIdeal.centerYAnchor.constraint(equalTo: quantidyIdealView.centerYAnchor)
         ])
       
     }
