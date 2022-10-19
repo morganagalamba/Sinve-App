@@ -10,7 +10,20 @@ import UIKit
 class ProviderTableViewCell: UITableViewCell {
 
     static let identifier = "ProviderTableViewCell"
+    var number = ""
     
+    public let call: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 12, weight: .bold)
+        let symbol = UIImage(systemName: "phone.fill.arrow.up.right", withConfiguration: config)?.withTintColor(UIColor(named:"PineTree") ?? .white)
+        button.setImage(symbol, for: .normal)
+        button.backgroundColor = UIColor(named: "LaurelGreen")
+        button.layer.cornerRadius = 13
+        button.addTarget(self, action:#selector(pressed), for: .touchUpInside)
+        return button
+    }()
+
     let cellView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -89,6 +102,7 @@ class ProviderTableViewCell: UITableViewCell {
         contentView.addSubview(deliver)
         contentView.addSubview(daysView)
         contentView.addSubview(days)
+        contentView.addSubview(call)
         
         setupConstraints()
     }
@@ -143,7 +157,20 @@ class ProviderTableViewCell: UITableViewCell {
             days.centerYAnchor.constraint(equalTo: daysView.centerYAnchor),
             days.centerXAnchor.constraint(equalTo: daysView.centerXAnchor)
         ])
+        
+        NSLayoutConstraint.activate([
+            call.centerYAnchor.constraint(equalTo: cellView.centerYAnchor),
+            call.trailingAnchor.constraint(equalTo: cellView.trailingAnchor,constant: -20),
+            call.widthAnchor.constraint(equalToConstant: 26),
+            call.heightAnchor.constraint(equalToConstant: 26)
+        ])
       
+    }
+    
+    @objc func pressed() {
+        let formattedString = number.replacingOccurrences(of: " ", with: "")
+        guard let number = URL(string: "tel://" + formattedString) else { return }
+            UIApplication.shared.open(number)
     }
 
 }

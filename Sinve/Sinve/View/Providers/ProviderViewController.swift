@@ -36,7 +36,7 @@ class ProviderViewController: UITableViewController {
         cell.company.text = fornecedores[indexPath.row].nomeFantasia
         cell.cnpjNumber.text = fornecedores[indexPath.row].cnpj
         cell.days.text = String(fornecedores[indexPath.row].prazoEntrega) + " dias"
-        
+        cell.number = fornecedores[indexPath.row].telefone
 //        cell.company.text = "Ativa produtos veterinários"
 //        cell.cnpjNumber.text = "0918138319/001"
 //        cell.days.text = "30 dias"
