@@ -10,7 +10,20 @@ import UIKit
 class ProviderTableViewCell: UITableViewCell {
 
     static let identifier = "ProviderTableViewCell"
+    var number = ""
     
+    public let call: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(pointSize: 12, weight: .bold)
+        let symbol = UIImage(systemName: "phone.fill.arrow.up.right", withConfiguration: config)?.withTintColor(UIColor(named:"PineTree") ?? .white)
+        button.setImage(symbol, for: .normal)
+        button.backgroundColor = UIColor(named: "LaurelGreen")
+        button.layer.cornerRadius = 13
+        button.addTarget(self, action:#selector(pressed), for: .touchUpInside)
+        return button
+    }()
+
     let cellView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -46,7 +59,7 @@ class ProviderTableViewCell: UITableViewCell {
     
     public var cnpjNumber: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,6 +71,14 @@ class ProviderTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    let daysView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "BackGround")
+        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     public var days: UILabel = {
@@ -79,7 +100,9 @@ class ProviderTableViewCell: UITableViewCell {
         contentView.addSubview(cnpj)
         contentView.addSubview(cnpjNumber)
         contentView.addSubview(deliver)
+        contentView.addSubview(daysView)
         contentView.addSubview(days)
+        contentView.addSubview(call)
         
         setupConstraints()
     }
@@ -92,8 +115,8 @@ class ProviderTableViewCell: UITableViewCell {
     private func setupConstraints(){
         NSLayoutConstraint.activate([
             cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
@@ -120,14 +143,34 @@ class ProviderTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             deliver.leadingAnchor.constraint(equalTo: company.trailingAnchor),
-            deliver.topAnchor.constraint(equalTo: cellView.topAnchor,constant: 24),
+            deliver.topAnchor.constraint(equalTo: cellView.topAnchor,constant: 16),
         ])
         
         NSLayoutConstraint.activate([
-            days.leadingAnchor.constraint(equalTo: deliver.leadingAnchor),
-            days.topAnchor.constraint(equalTo: deliver.bottomAnchor,constant: 8)
+            daysView.leadingAnchor.constraint(equalTo: deliver.leadingAnchor),
+            daysView.topAnchor.constraint(equalTo: deliver.bottomAnchor,constant: 8),
+            daysView.widthAnchor.constraint(equalToConstant: 66),
+            daysView.heightAnchor.constraint(equalToConstant: 31)
+        ])
+        
+        NSLayoutConstraint.activate([
+            days.centerYAnchor.constraint(equalTo: daysView.centerYAnchor),
+            days.centerXAnchor.constraint(equalTo: daysView.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            call.centerYAnchor.constraint(equalTo: cellView.centerYAnchor),
+            call.trailingAnchor.constraint(equalTo: cellView.trailingAnchor,constant: -20),
+            call.widthAnchor.constraint(equalToConstant: 26),
+            call.heightAnchor.constraint(equalToConstant: 26)
         ])
       
+    }
+    
+    @objc func pressed() {
+        let formattedString = number.replacingOccurrences(of: " ", with: "")
+        guard let number = URL(string: "tel://" + formattedString) else { return }
+            UIApplication.shared.open(number)
     }
 
 }

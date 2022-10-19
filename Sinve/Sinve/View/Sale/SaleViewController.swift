@@ -24,11 +24,6 @@ class SaleViewController: UIViewController {
         view.backgroundColor = UIColor(named: "BackGround")
         view.addSubview(addSale)
         
-//        let logo = UIImage(named: "logoName.png")
-//        let imageView = UIImageView(image:logo)
-//        imageView.contentMode = .scaleAspectFit
-//        self.navigationItem.titleView = imageView
-        
         self.title = "Vendas"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         setupConstraints()
@@ -40,8 +35,6 @@ class SaleViewController: UIViewController {
     }
     
     @objc func pressed() {
-        
-        
         var view = ScannerViewController()
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)

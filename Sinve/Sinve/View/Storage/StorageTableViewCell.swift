@@ -110,8 +110,8 @@ class StorageTableViewCell: UITableViewCell {
     private func setupConstraints(){
         NSLayoutConstraint.activate([
             cellView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
