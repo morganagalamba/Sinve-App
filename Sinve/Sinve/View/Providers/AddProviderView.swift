@@ -19,6 +19,18 @@ class AddProviderView: UIView {
         return stack
     }()
     
+    let name: TextInputSinve = {
+        let input = TextInputSinve()
+        let model = TextInputSinveModel(placeholder:"Ativa produtos diversificados",
+                                        keyboard: .default)
+        input.configure(with: model)
+        return input
+    }()
+    
+    
+    let cnpj = TextInputSinve()
+    let phone = TextInputSinve()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -32,21 +44,12 @@ class AddProviderView: UIView {
     private func addSubviews(){
         addSubview(mainStack)
         
-        let view1 = UIView()
-        view1.backgroundColor = .black
-        
-        let view2 = UIView()
-        view2.backgroundColor = .orange
-        
-        let view3 = UIView()
-        view3.backgroundColor = .systemPink
-        
         let view4 = UIView()
         view4.backgroundColor = .green
         
-        mainStack.addArrangedSubview(view1)
-        mainStack.addArrangedSubview(view2)
-        mainStack.addArrangedSubview(view3)
+        mainStack.addArrangedSubview(name)
+        mainStack.addArrangedSubview(cnpj)
+        mainStack.addArrangedSubview(phone)
         mainStack.addArrangedSubview(view4)
     }
     
