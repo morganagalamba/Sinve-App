@@ -7,13 +7,15 @@
 
 import UIKit
 
+
+
 class AddProviderView: UIView {
     
     let mainStack: UIStackView = {
         let stack = UIStackView()
         stack.distribution = .fillEqually
         stack.alignment = .fill
-        stack.spacing = 22
+        stack.spacing = 16
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
@@ -22,14 +24,26 @@ class AddProviderView: UIView {
     let name: TextInputSinve = {
         let input = TextInputSinve()
         let model = TextInputSinveModel(placeholder:"Ativa produtos diversificados",
-                                        keyboard: .default)
+                                        keyboard: .default, title: "Nome")
         input.configure(with: model)
         return input
     }()
     
+    let cnpj: TextInputSinve = {
+        let input = TextInputSinve()
+        let model = TextInputSinveModel(placeholder: "0000000000",
+                                        keyboard: .numberPad, title: "CNPJ")
+        input.configure(with: model)
+        return input
+    }()
     
-    let cnpj = TextInputSinve()
-    let phone = TextInputSinve()
+    let phone: TextInputSinve = {
+        let input = TextInputSinve()
+        let model = TextInputSinveModel(placeholder: "(81) 99999-9999",
+                                        keyboard: .phonePad, title: "Telefone")
+        input.configure(with: model)
+        return input
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,3 +77,4 @@ class AddProviderView: UIView {
         ])
     }
 }
+

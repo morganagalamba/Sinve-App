@@ -11,6 +11,7 @@ import UIKit
 struct TextInputSinveModel {
     let placeholder: String
     let keyboard: UIKeyboardType
+    let title: String
 }
 
 class TextInputSinve: UIView {
@@ -27,12 +28,11 @@ class TextInputSinve: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 13, weight: .medium)
         label.textColor = .black
-        label.text = "Nome"
         return label
     }()
     
-    let input: UITextField = {
-        let text = UITextField()
+    let input: TextField = {
+        let text = TextField()
         text.font = UIFont.systemFont(ofSize: 17)
         text.layer.masksToBounds = true
         text.layer.cornerRadius = 10
@@ -73,5 +73,23 @@ extension TextInputSinve {
     func configure(with model: TextInputSinveModel){
         input.keyboardType = model.keyboard
         input.placeholder = model.placeholder
+        name.text = model.title
+    }
+}
+
+class TextField: UITextField {
+
+    let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
     }
 }
