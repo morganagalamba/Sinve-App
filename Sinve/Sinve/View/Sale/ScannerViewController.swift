@@ -25,6 +25,25 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         button.addTarget(self, action:#selector(finishScan), for: .touchUpInside)
         return button
     }()
+    
+    let cellView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "TimberWolf")
+        view.layer.cornerRadius = 10
+        view.isHidden = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    public var feedback: UILabel = {
+        let label = UILabel()
+        label.textColor = .darkGray
+        label.isHidden = true
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +86,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         avPreviewLayer.videoGravity = .resizeAspectFill
         view.layer.addSublayer(avPreviewLayer)
         view.addSubview(addquantidy)
+        view.addSubview(cellView)
+        view.addSubview(feedback)
         setupConstraints()
         DispatchQueue.main.async {
             self.avCaptureSession.startRunning()
@@ -74,6 +95,20 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     private func setupConstraints(){
+        
+        NSLayoutConstraint.activate([
+            cellView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            cellView.bottomAnchor.constraint(equalTo: addquantidy.topAnchor, constant: -25),
+            cellView.heightAnchor.constraint(equalToConstant: 45),
+            cellView.widthAnchor.constraint(equalToConstant: 370)
+        ])
+        
+        NSLayoutConstraint.activate([
+            feedback.centerXAnchor.constraint(equalTo: cellView.centerXAnchor),
+            feedback.centerYAnchor.constraint(equalTo: cellView.centerYAnchor),
+            feedback.widthAnchor.constraint(equalToConstant: 350)
+        ])
+        
         NSLayoutConstraint.activate([
             addquantidy.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             addquantidy.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150)
@@ -152,9 +187,39 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     let produto = try decoder.decode(Produto.self, from: data)
                     print(produto)
                     print(data)
+                    let queue = DispatchQueue(label: "update")
                     if produto.nome != nil {
                         self.produtos.append(produto)
-                        //emitir mensagem de erro
+                        queue.async {
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                self.cellView.isHidden = true
+                                self.feedback.isHidden = true
+
+                            }
+
+                            DispatchQueue.main.async {
+                                self.feedback.text = (produto.nome ?? "")
+                                self.cellView.isHidden = false
+                                self.feedback.isHidden = false
+                            }
+                        }
+        
+
+                    } else {
+                        queue.async {
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                self.cellView.isHidden = true
+                                self.feedback.isHidden = true
+                                
+                            }
+                            DispatchQueue.main.async {
+                                self.feedback.text = "Produto não encontrado!"
+                                self.cellView.isHidden = false
+                                self.feedback.isHidden = false
+                            }
+                        }
                     }
                     
                 } catch {
