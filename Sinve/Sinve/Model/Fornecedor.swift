@@ -8,6 +8,7 @@
 import Foundation
 
 struct Fornecedor: Codable, Hashable {
+
     var id: String
     var cnpj: String
     var nomeFantasia: String
