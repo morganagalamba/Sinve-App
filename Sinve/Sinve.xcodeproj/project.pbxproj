@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D79FE1C290396E000631E5E /* AddProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1B290396E000631E5E /* AddProviderView.swift */; };
+		0D79FE1E29039AB600631E5E /* TextInputSinve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1D29039AB600631E5E /* TextInputSinve.swift */; };
 		D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2128E2503600940F7C /* ScannerViewController.swift */; };
 		D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProviderViewController.swift */; };
 		D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D79FE1B290396E000631E5E /* AddProviderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProviderView.swift; sourceTree = "<group>"; };
+		0D79FE1D29039AB600631E5E /* TextInputSinve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputSinve.swift; sourceTree = "<group>"; };
 		D71C5A2128E2503600940F7C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D71C5A2328E250B300940F7C /* ProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewController.swift; sourceTree = "<group>"; };
 		D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 				D71C5A2328E250B300940F7C /* ProviderViewController.swift */,
 				D7B8CFFB28FF3F3A004050BE /* ProviderTableViewCell.swift */,
 				D7B8CFFF28FFA72B004050BE /* AddProviderViewController.swift */,
+				0D79FE1B290396E000631E5E /* AddProviderView.swift */,
+				0D79FE1D29039AB600631E5E /* TextInputSinve.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -364,11 +370,13 @@
 				D7B8CFFC28FF3F3A004050BE /* ProviderTableViewCell.swift in Sources */,
 				D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */,
 				D79A426F28EBA217009D26F7 /* TotalView.swift in Sources */,
+				0D79FE1E29039AB600631E5E /* TextInputSinve.swift in Sources */,
 				D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */,
 				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
 				D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */,
 				D7B8D00028FFA72B004050BE /* AddProviderViewController.swift in Sources */,
 				D765841228F3A9A400A33C38 /* PaymentViewController.swift in Sources */,
+				0D79FE1C290396E000631E5E /* AddProviderView.swift in Sources */,
 				D7B8CFFE28FF4065004050BE /* Fornecedor.swift in Sources */,
 				D765841028F31F3E00A33C38 /* Produto.swift in Sources */,
 				D7B8CFF828FEFF28004050BE /* StorageTableViewCell.swift in Sources */,
