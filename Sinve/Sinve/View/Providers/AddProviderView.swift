@@ -11,6 +11,8 @@ import UIKit
 
 class AddProviderView: UIView {
     
+    var delegate: AddProviderProtocol?
+    
     let mainStack: UIStackView = {
         let stack = UIStackView()
         stack.distribution = .fillEqually
@@ -47,6 +49,16 @@ class AddProviderView: UIView {
     
     let timeDelivery = TimeDelivery()
     
+    public let addProviderButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Cadastrar Fornecedor", for: .normal)
+        button.configuration = UIButton.Configuration.filled()
+        button.backgroundColor = UIColor(named: "BackGround")
+        button.addTarget(nil, action: #selector(addProvider), for: .touchUpInside)
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -66,6 +78,7 @@ class AddProviderView: UIView {
     
     private func addSubviews(){
         addSubview(mainStack)
+        addSubview(addProviderButton)
                 
         mainStack.addArrangedSubview(name)
         mainStack.addArrangedSubview(cnpj)
@@ -81,6 +94,16 @@ class AddProviderView: UIView {
             mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStack.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1/2)
         ])
+        
+        addProviderButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addProviderButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            addProviderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -64)
+        ])
+    }
+    
+    @objc func addProvider(){
+        delegate?.didUserTapCreateProvider()
     }
 }
 

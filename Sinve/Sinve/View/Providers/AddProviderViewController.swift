@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddProviderProtocol: AnyObject {
+    func didUserTapCreateProvider();
+}
+
 class AddProviderViewController: UIViewController {
     
     let addProviderView = AddProviderView()
@@ -20,6 +24,7 @@ class AddProviderViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor(named: "BackGround")
         pickerView.delegate = self
+        addProviderView.delegate = self
         addProviderView.timeDelivery.typeInput.inputView = pickerView // matei as boas praticas, cansado dms para fazer um delegate
         dismissPickerView()
     }
@@ -34,6 +39,7 @@ class AddProviderViewController: UIViewController {
        toolBar.setItems([button], animated: true)
        toolBar.isUserInteractionEnabled = true
         addProviderView.timeDelivery.typeInput.inputAccessoryView = toolBar
+        // matei as boas praticas, cansado dms para fazer um delegate
     }
     
     @objc func action() {
@@ -62,4 +68,12 @@ extension AddProviderViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         addProviderView.timeDelivery.typeInput.text = selected
         // matei as boas praticas, cansado dms para fazer um delegate
     }
+}
+
+extension AddProviderViewController: AddProviderProtocol {
+    
+    func didUserTapCreateProvider() {
+        print("aqui")
+    }
+
 }
