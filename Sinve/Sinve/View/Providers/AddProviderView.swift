@@ -45,10 +45,19 @@ class AddProviderView: UIView {
         return input
     }()
     
+    let timeDelivery = TimeDelivery()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
         setupConstraints()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.endEditing(true)
     }
     
     required init?(coder: NSCoder) {
@@ -57,14 +66,11 @@ class AddProviderView: UIView {
     
     private func addSubviews(){
         addSubview(mainStack)
-        
-        let view4 = UIView()
-        view4.backgroundColor = .green
-        
+                
         mainStack.addArrangedSubview(name)
         mainStack.addArrangedSubview(cnpj)
         mainStack.addArrangedSubview(phone)
-        mainStack.addArrangedSubview(view4)
+        mainStack.addArrangedSubview(timeDelivery)
     }
     
     private func setupConstraints(){

@@ -44,7 +44,7 @@ class ProviderViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor(named: "BackGround")
         self.title = "Fornecedores"
-        
+    
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -132,5 +132,5 @@ extension ProviderViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
 }
+

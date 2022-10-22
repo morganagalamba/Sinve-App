@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D79FE1C290396E000631E5E /* AddProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1B290396E000631E5E /* AddProviderView.swift */; };
 		0D79FE1E29039AB600631E5E /* TextInputSinve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1D29039AB600631E5E /* TextInputSinve.swift */; };
+		0D79FE202903A5E200631E5E /* TimeDelivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1F2903A5E200631E5E /* TimeDelivery.swift */; };
 		D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2128E2503600940F7C /* ScannerViewController.swift */; };
 		D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProviderViewController.swift */; };
 		D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		0D79FE1B290396E000631E5E /* AddProviderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProviderView.swift; sourceTree = "<group>"; };
 		0D79FE1D29039AB600631E5E /* TextInputSinve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputSinve.swift; sourceTree = "<group>"; };
+		0D79FE1F2903A5E200631E5E /* TimeDelivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDelivery.swift; sourceTree = "<group>"; };
 		D71C5A2128E2503600940F7C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D71C5A2328E250B300940F7C /* ProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewController.swift; sourceTree = "<group>"; };
 		D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				D7B8CFFF28FFA72B004050BE /* AddProviderViewController.swift */,
 				0D79FE1B290396E000631E5E /* AddProviderView.swift */,
 				0D79FE1D29039AB600631E5E /* TextInputSinve.swift */,
+				0D79FE1F2903A5E200631E5E /* TimeDelivery.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				D7E5216028F9E2D5007078AC /* StorageViewController.swift in Sources */,
 				D7DE377028DC052F00291AFE /* SceneDelegate.swift in Sources */,
 				D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */,
+				0D79FE202903A5E200631E5E /* TimeDelivery.swift in Sources */,
 				D7B8CFFA28FF2C61004050BE /* Estoque.swift in Sources */,
 				D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */,
 			);
