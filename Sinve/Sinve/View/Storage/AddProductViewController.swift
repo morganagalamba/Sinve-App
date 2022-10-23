@@ -28,8 +28,6 @@ class AddProductViewController: UIViewController, AddProductProtocol {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor(named: "BackGround")
         
-        fillProvider()
-        
         pickerView.delegate = self
         pickerView.backgroundColor = .white
         pickerView.tag = 1
@@ -52,21 +50,28 @@ class AddProductViewController: UIViewController, AddProductProtocol {
        
     }
     
-    
-    func fillProvider() {
-        let url = URL(string: "http://ec2-54-89-160-231.compute-1.amazonaws.com:5500/fornecedor")!
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-
-            if let result = try? JSONDecoder().decode([Fornecedor].self, from: data!) {
-                self.fornecedores = result
-            } else {
-                print("Erro ao decodificar dados da API")
-            }
-            
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Task {
+            let providers = await fillProvider()
+            self.fornecedores = providers
+            print(providers.count)
         }
-        task.resume()
+    }
+    
+    func fillProvider() async -> [Fornecedor] {
+        let providerUrl = URL(string: "http://ec2-54-89-160-231.compute-1.amazonaws.com:5500/fornecedor")
         
+        guard let url = providerUrl else { return [] }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let result = try JSONDecoder().decode([Fornecedor].self, from: data)
+            return result
+        } catch {
+            print("Erro ao decodificar dados da API")
+            return []
+        }
     }
     
 }
@@ -111,9 +116,12 @@ extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
             let selected = items[row]
             addProductView.category.input.text = selected
         } else {
-            let provider = fornecedores[row].nomeFantasia
-            addProductView.provider.input.text = provider
-            addProductView.fornecedor = fornecedores[row]
+            if fornecedores.count > 0 {
+                let provider = fornecedores[row].nomeFantasia
+                addProductView.provider.input.text = provider
+                addProductView.fornecedor = fornecedores[row]
+            }
+            
         }    
     }
     
