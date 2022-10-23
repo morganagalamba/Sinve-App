@@ -78,28 +78,19 @@ extension AddProviderViewController: AddProviderProtocol {
     }
     
     func didUserTapCreateProvider() {
-        // um manager apiCaller foi com deus.
-
-        let name = addProviderView.nameText
-        let cnpj = addProviderView.cnpjText
-        let phone = addProviderView.phoneText
-        let time = addProviderView.timeToWait
-
-        //	CNPJ: string,
-        //	nomeFantasia: string,
-        //	prazoEntrega: number,
-        //	telefone: string
+        let fornecedor = addProviderView.getProviderInputs()
 
         let parameters: [String: Any] = [
-            "nomeFantasia": name,
-            "prazoEntrega": time,
-            "telefone": phone,
-            "CNPJ": cnpj
+            "nomeFantasia": fornecedor.nomeFantasia,
+            "prazoEntrega": fornecedor.prazoEntrega,
+            "telefone": fornecedor.telefone,
+            "CNPJ": fornecedor.cnpj
         ]
 
         guard let body = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        guard let url = URL(string: Constants.PROVIDER_URL) else { return }
+        var request = URLRequest(url: url)
 
-        var request = URLRequest(url: Constants.PROVIDER_URL)
         request.httpMethod = Constants.PROVIDER_REQUEST
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = body
