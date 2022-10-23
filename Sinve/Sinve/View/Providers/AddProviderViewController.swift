@@ -79,7 +79,7 @@ extension AddProviderViewController: AddProviderProtocol {
     
     func didUserTapCreateProvider() {
         // um manager apiCaller foi com deus.
-        
+
         let name = addProviderView.nameText
         let cnpj = addProviderView.cnpjText
         let phone = addProviderView.phoneText
@@ -109,9 +109,7 @@ extension AddProviderViewController: AddProviderProtocol {
                 print(response)
             }
 
-            guard let data = data else {
-                return
-            }
+            guard let data = data else { return }
 
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: [])
@@ -121,6 +119,8 @@ extension AddProviderViewController: AddProviderProtocol {
             }
         }
         task.resume()
+
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
