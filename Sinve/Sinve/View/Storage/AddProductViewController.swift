@@ -9,6 +9,7 @@ import UIKit
 
 protocol AddProductProtocol: AnyObject {
     func didUserTapAddProduct();
+    func emitFillAlert();
 }
 
 class AddProductViewController: UIViewController, AddProductProtocol {
@@ -50,6 +51,7 @@ class AddProductViewController: UIViewController, AddProductProtocol {
         
        
     }
+    
     
     func fillProvider() {
         let url = URL(string: "http://ec2-54-89-160-231.compute-1.amazonaws.com:5500/fornecedor")!
@@ -121,5 +123,14 @@ extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
            view.hidesBottomBarWhenPushed = true
            self.navigationController?.pushViewController(view, animated: true)
        }
+    }
+    
+    func emitFillAlert() {
+        var dialogMessage = UIAlertController(title: "Não foi possível cadastrar produto", message: "Preencha todos os campos!", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: .default, handler: { (action) -> Void in
+             print("Ok button tapped")
+        })
+        dialogMessage.addAction(ok)
+        self.present(dialogMessage, animated: true, completion: nil)
     }
 }

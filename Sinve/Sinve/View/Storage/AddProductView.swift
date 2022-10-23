@@ -11,7 +11,7 @@ class AddProductView: UIView {
     
     public var fornecedor: Fornecedor?
     var delegate: AddProductProtocol?
-    
+     
     let mainStack: UIStackView = {
         let stack = UIStackView()
         stack.distribution = .fillEqually
@@ -173,73 +173,30 @@ class AddProductView: UIView {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = body
         
-        
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    self.delegate?.didUserTapAddProduct()
-                    
-                } catch {
-                   print(error)
+        if isFilled() == true {
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                if let data = data {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        self.delegate?.didUserTapAddProduct()
+                        
+                    } catch {
+                       print(error)
+                    }
                 }
-            }
-        }.resume()
+            }.resume()
+        } else {
+            delegate?.emitFillAlert()
+        }
+        
+        
     }
     
-    let slash = "/"
-    let digits = CharacterSet(charactersIn: "0123456789")
-
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        //Deleting
-        if string.count == 0 {
-            var text = textField.text!
-            let start = text.startIndex
-            let beginRange = text.index(start, offsetBy: range.location)
-            let endRange = text.index(start, offsetBy: range.location + range.length)
-            text = String(text.prefix(upTo: beginRange))
-                + String(text.suffix(from: endRange))
-            text = text.replacingOccurrences(of: "/", with: "")
-            if text.count >= 3 {
-                text = String(text.prefix(2)) + "/" + String(text.dropFirst(2))
-            }
-
-            textField.text = text
-
-            return false
-        }
-
-        //Typing
-
-        let count = textField.text!.count
-        guard string.count == 1,
-            count < 6,
-            let scalar = Character(string).unicodeScalars.first else {
-                return false
-        }
-
-        let isDigit = digits.contains(scalar)
-
-        switch count {
-        case 0, 3..<6 :
-            return isDigit
-        case 1:
-            if isDigit {
-                textField.text = textField.text! + string + "/"
-            }
-            return false
-        case 2:
-            if string == slash {
-                return true
-            } else {
-                textField.text = textField.text! + "/" + string
-                return false
-            }
-        default:
-            return false
-        }
+    func isFilled() -> Bool{
+        if self.name.input.text != "" && self.code.input.text != "" && self.amount.input.text != "" && self.price.input.text != "" &&
+            self.category.input.text != "" && self.date.input.text != "" && self.provider.input.text != "" {
+            return true
+        } else {return false}
     }
 }
