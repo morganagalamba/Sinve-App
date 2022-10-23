@@ -13,13 +13,16 @@ class StorageViewController: UITableViewController {
     var estoque: [Estoque] = []
     var submitButton = UIButton()
     
-    public let addProduct: UIButton = {
+    public var addProduct: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Cadastrar Produto", for: .normal)
         button.configuration = UIButton.Configuration.filled()
         button.backgroundColor = UIColor(named: "BackGround")
-        button.addTarget(self, action:#selector(addProd), for: .touchUpInside)
+        //button.addTarget(self, action:#selector(addProd(_:)), for: .touchUpInside)
+        //let panner = UIPanGestureRecognizer(target: self, action: #selector(panDidFire))
+        //button.addGestureRecognizer(panner)
+       
         return button
     }()
 
@@ -38,6 +41,7 @@ class StorageViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         view.window?.addSubview(addProduct)
+        addProduct.addTarget(self, action:#selector(addProd(_:)), for: .touchUpInside)
         setupConstraints()
     }
     
@@ -129,8 +133,8 @@ class StorageViewController: UITableViewController {
     
     }
     
-    @objc func addProd() {
-        var view = AddProductViewController()
+    @objc func addProd(_ sender : UIButton) {
+        let view = AddProductViewController()
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)
     }
