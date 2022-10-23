@@ -11,6 +11,7 @@ class StorageViewController: UITableViewController {
     
     let searchBar:UISearchController = UISearchController()
     var estoque: [Estoque] = []
+    var submitButton = UIButton()
     
     public let addProduct: UIButton = {
         let button = UIButton()
@@ -32,9 +33,17 @@ class StorageViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Estoque"
-        view.addSubview(addProduct)
+               
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        view.window?.addSubview(addProduct)
         setupConstraints()
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.addProduct.removeFromSuperview()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,8 +55,11 @@ class StorageViewController: UITableViewController {
     }
     
     func setupConstraints(){
-        addProduct.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 600).isActive = true
-        addProduct.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        addProduct.bottomAnchor.constraint(equalTo: view.window?.bottomAnchor ?? view.bottomAnchor, constant: -100).isActive = true
+        addProduct.centerXAnchor.constraint(equalTo: view.window?.centerXAnchor ?? view.centerXAnchor).isActive = true
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
