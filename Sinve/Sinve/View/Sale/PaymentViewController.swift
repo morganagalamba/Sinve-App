@@ -13,7 +13,7 @@ class PaymentViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = UIButton.Configuration.filled()
-        button.setTitle("Realizar outra venda", for: .normal)
+        button.setTitle("Nova venda", for: .normal)
         button.backgroundColor = UIColor.clear
         button.addTarget(self, action:#selector(okPressed), for: .touchUpInside)
         return button
@@ -30,11 +30,6 @@ class PaymentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.title = "Pagamento"
-        let logo = UIImage(named: "logoName.png")
-        let imageView = UIImageView(image:logo)
-        imageView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = imageView
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         
