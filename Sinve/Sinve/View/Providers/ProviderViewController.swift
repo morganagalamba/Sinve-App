@@ -21,7 +21,11 @@ class ProviderViewController: UIViewController {
         return table
     }()
     
-    var fornecedores: [Fornecedor] = []
+    var fornecedores: [Fornecedor] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     public let addProvider: UIButton = {
         let button = UIButton()
@@ -52,7 +56,7 @@ class ProviderViewController: UIViewController {
         Task {
             let providers = await fillProvider()
             self.fornecedores = providers
-            self.tableView.reloadData()
+            print(providers.count)
         }
     }
 
@@ -69,10 +73,10 @@ class ProviderViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -85),
+            tableView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, constant: -75),
             
             addProvider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addProvider.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 32)
+            addProvider.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 16)
         ])
     }
     
@@ -89,7 +93,6 @@ class ProviderViewController: UIViewController {
             print("Erro ao decodificar dados da API")
             return []
         }
-        
     }
     
     @objc func addProv(){

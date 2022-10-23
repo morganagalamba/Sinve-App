@@ -103,7 +103,10 @@ class AddProviderView: UIView {
     }
     
     @objc func addProvider(){
-        delegate?.didUserTapCreateProvider()
+        Task {
+            await delegate?.didUserTapCreateProvider()
+        }
+ 
     }
 
     func getProviderInputs() -> Fornecedor {

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddProviderProtocol: AnyObject {
-    func didUserTapCreateProvider();
+    func didUserTapCreateProvider() async
 }
 
 class AddProviderViewController: UIViewController {
@@ -73,11 +73,11 @@ extension AddProviderViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 extension AddProviderViewController: AddProviderProtocol {
 
     struct Constants {
-        static let PROVIDER_URL = "https://sinve-back-production.up.railway.app/fornecedor"
+        static let PROVIDER_URL = "http://ec2-54-89-160-231.compute-1.amazonaws.com:5500/fornecedor"
         static let PROVIDER_REQUEST = "POST"
     }
     
-    func didUserTapCreateProvider() {
+    func didUserTapCreateProvider() async {
         let fornecedor = addProviderView.getProviderInputs()
 
         let parameters: [String: Any] = [
@@ -94,24 +94,13 @@ extension AddProviderViewController: AddProviderProtocol {
         request.httpMethod = Constants.PROVIDER_REQUEST
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = body
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response {
-                print(response)
-            }
-
-            guard let data = data else { return }
-
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                print(json)
-            } catch {
-                print(error)
-            }
+        
+        do {
+            let (_, _ ) = try await URLSession.shared.data(for: request)
+        } catch {
+            print(error)
         }
-        task.resume()
-
+        
         self.navigationController?.popViewController(animated: true)
     }
-
 }
