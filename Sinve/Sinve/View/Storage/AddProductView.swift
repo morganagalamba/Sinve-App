@@ -74,7 +74,7 @@ class AddProductView: UIView {
     
     let date: TextInputSinve = {
         let input = TextInputSinve()
-        let model = TextInputSinveModel(placeholder: "",
+        let model = TextInputSinveModel(placeholder: "00/00/00",
                                         keyboard: .numbersAndPunctuation, title: "Data de validade")
         input.configure(with: model)
         return input
@@ -136,7 +136,53 @@ class AddProductView: UIView {
     }
     
     @objc func addProduct(){
+        let baseURl = "https://sinve-back-production.up.railway.app/"
+        let path = "cadastro-de-produto"
         
+        let parametros: [String: Any] = [
+            "produto": [
+                    "nome": "Ponta de lapiseira 0.7 faber castel",
+                    "codigo": "7891360472742",
+                    "categoria": "Variados",
+                    "dataValidade": "10/06/2023",
+                    "quantidade": 15,
+                    "precoPorUnidade": 5,
+                    
+            ],
+            "fornecedor": [
+                "CNPJ": "0918138319/001",
+                "nomeFantasia": "Acerola",
+                "prazoEntrega": 30,
+                "telefone": "81 9100-0000"
+            ]
+        ]
+        
+        guard let body = try? JSONSerialization.data(withJSONObject: parametros, options: []) else { return }
+        
+        guard let url = URL(string: baseURl + path) else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+        
+        
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let response = response {
+                print(response)
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    print(json)
+                } catch {
+                    print(error)
+                }
+            }
+        }.resume()
     }
     
     let slash = "/"
