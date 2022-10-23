@@ -129,7 +129,6 @@ class StorageViewController: UITableViewController {
             
         }
         task.resume()
-    
     }
     
     @objc func addProd(_ sender : UIButton) {
