@@ -27,6 +27,12 @@ class ProviderViewController: UIViewController {
         }
     }
     
+    var helperFornecedores: [Fornecedor] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     public let addProvider: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +62,7 @@ class ProviderViewController: UIViewController {
         Task {
             let providers = await fillProvider()
             self.fornecedores = providers
-            print(providers.count)
+            self.helperFornecedores = providers
         }
     }
 
@@ -105,10 +111,12 @@ class ProviderViewController: UIViewController {
 
 extension ProviderViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let _ = searchBar.searchBar.text else {
-            return
+        guard let text = searchBar.searchBar.text else { return }
+        
+        let newFornecedores = fornecedores.filter { fornecedor in
+            return fornecedor.nomeFantasia.hasPrefix(text)
         }
-        //usar text pra procurar
+        self.helperFornecedores = newFornecedores
         self.tableView.reloadData()
     }
 }
@@ -120,7 +128,7 @@ extension ProviderViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fornecedores.count
+        return helperFornecedores.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,10 +136,10 @@ extension ProviderViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        cell.company.text = fornecedores[indexPath.row].nomeFantasia
-        cell.cnpjNumber.text = fornecedores[indexPath.row].cnpj
-        cell.days.text = String(fornecedores[indexPath.row].prazoEntrega) + " dias"
-        cell.number = fornecedores[indexPath.row].telefone
+        cell.company.text = helperFornecedores[indexPath.row].nomeFantasia
+        cell.cnpjNumber.text = helperFornecedores[indexPath.row].cnpj
+        cell.days.text = String(helperFornecedores[indexPath.row].prazoEntrega) + " dias"
+        cell.number = helperFornecedores[indexPath.row].telefone
         
         return cell
     }

@@ -39,9 +39,13 @@ class TimeDelivery: UIView {
         text.font = UIFont.systemFont(ofSize: 17)
         text.layer.masksToBounds = true
         text.layer.cornerRadius = 10
-        text.textColor = UIColor(named: "inputTextColor")
+        text.textColor = .black
+        text.attributedPlaceholder = NSAttributedString(
+            string: "10",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "inputTextColor") ?? .black]
+        )
         text.backgroundColor = UIColor(named: "inputColor")
-        text.placeholder = "10"
+
         return text
     }()
     
@@ -50,7 +54,7 @@ class TimeDelivery: UIView {
         text.font = UIFont.systemFont(ofSize: 17)
         text.layer.masksToBounds = true
         text.layer.cornerRadius = 10
-        text.textColor = UIColor(named: "inputTextColor")
+        text.textColor = .black
         text.backgroundColor = UIColor(named: "inputColor")
         text.text = "Dias"
         return text
