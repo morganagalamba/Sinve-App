@@ -7,8 +7,12 @@
 
 import UIKit
 
-class AddProductViewController: UIViewController {
-    
+protocol AddProductProtocol: AnyObject {
+    func didUserTapAddProduct();
+}
+
+class AddProductViewController: UIViewController, AddProductProtocol {
+ 
     let addProductView = AddProductView()
     let pickerView = UIPickerView()
     let datePickerView = UIDatePicker()
@@ -37,7 +41,7 @@ class AddProductViewController: UIViewController {
         datePickerView.contentHorizontalAlignment = .center
         datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         addProductView.date.input.inputView = datePickerView
-        //addProductView.delegate = self
+        addProductView.delegate = self
         
         providerPickerView.delegate = self
         providerPickerView.tag = 2
@@ -109,6 +113,13 @@ extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
             addProductView.provider.input.text = provider
             addProductView.fornecedor = fornecedores[row]
         }    
-        
+    }
+    
+   func didUserTapAddProduct() {
+       DispatchQueue.main.async {
+           var view = didAddViewController()
+           view.hidesBottomBarWhenPushed = true
+           self.navigationController?.pushViewController(view, animated: true)
+       }
     }
 }

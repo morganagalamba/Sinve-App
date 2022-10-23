@@ -10,6 +10,7 @@ import UIKit
 class AddProductView: UIView {
     
     public var fornecedor: Fornecedor?
+    var delegate: AddProductProtocol?
     
     let mainStack: UIStackView = {
         let stack = UIStackView()
@@ -125,7 +126,6 @@ class AddProductView: UIView {
             mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
             mainStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStack.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -130)
-            //mainStack.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 1)
         ])
         
         addProductButton.translatesAutoresizingMaskIntoConstraints = false
@@ -180,11 +180,10 @@ class AddProductView: UIView {
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                    self.delegate?.didUserTapAddProduct()
+                    
                 } catch {
-                    
-                    print(error)
-                    
+                   print(error)
                 }
             }
         }.resume()
