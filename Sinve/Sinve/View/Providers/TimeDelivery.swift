@@ -92,6 +92,14 @@ class TimeDelivery: UIView {
             daysStack.trailingAnchor.constraint(equalTo: daysAndTypeView.trailingAnchor),
             daysStack.bottomAnchor.constraint(equalTo: daysAndTypeView.bottomAnchor)
         ])
-        
+    }
+
+    func getTimeDeliveryText() -> Int {
+        guard let type = typeInput.text else { return 0 }
+        let isMonth = type == "Dias" ? false : true
+        if isMonth {
+            return 30 * (Int(input.text ?? "0") ?? 0)
+        }
+        return (Int(input.text ?? "0") ?? 0)
     }
 }

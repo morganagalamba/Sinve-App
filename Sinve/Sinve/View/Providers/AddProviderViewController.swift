@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddProviderProtocol: AnyObject {
-    func didUserTapCreateProvider();
+    func didUserTapCreateProvider() async
 }
 
 class AddProviderViewController: UIViewController {
@@ -71,9 +71,36 @@ extension AddProviderViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 }
 
 extension AddProviderViewController: AddProviderProtocol {
-    
-    func didUserTapCreateProvider() {
-        print("aqui")
-    }
 
+    struct Constants {
+        static let PROVIDER_URL = "http://ec2-54-89-160-231.compute-1.amazonaws.com:5500/fornecedor"
+        static let PROVIDER_REQUEST = "POST"
+    }
+    
+    func didUserTapCreateProvider() async {
+        let fornecedor = addProviderView.getProviderInputs()
+
+        let parameters: [String: Any] = [
+            "nomeFantasia": fornecedor.nomeFantasia,
+            "prazoEntrega": fornecedor.prazoEntrega,
+            "telefone": fornecedor.telefone,
+            "CNPJ": fornecedor.cnpj
+        ]
+
+        guard let body = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        guard let url = URL(string: Constants.PROVIDER_URL) else { return }
+        var request = URLRequest(url: url)
+
+        request.httpMethod = Constants.PROVIDER_REQUEST
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+        
+        do {
+            let (_, _ ) = try await URLSession.shared.data(for: request)
+        } catch {
+            print(error)
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+    }
 }

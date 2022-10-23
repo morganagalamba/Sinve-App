@@ -9,14 +9,12 @@ import Foundation
 
 struct Fornecedor: Codable, Hashable {
 
-    var id: String
     var cnpj: String
     var nomeFantasia: String
     var prazoEntrega: Int
     var telefone: String
     
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
         case cnpj = "CNPJ"
         case nomeFantasia = "nomeFantasia"
         case prazoEntrega = "prazoEntrega"

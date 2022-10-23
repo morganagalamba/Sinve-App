@@ -11,8 +11,8 @@ import UIKit
 
 class AddProviderView: UIView {
     
-    var delegate: AddProviderProtocol?
-    
+    weak var delegate: AddProviderProtocol?
+
     let mainStack: UIStackView = {
         let stack = UIStackView()
         stack.distribution = .fillEqually
@@ -103,7 +103,22 @@ class AddProviderView: UIView {
     }
     
     @objc func addProvider(){
-        delegate?.didUserTapCreateProvider()
+        Task {
+            await delegate?.didUserTapCreateProvider()
+        }
+ 
+    }
+
+    func getProviderInputs() -> Fornecedor {
+        let currentName = name.input.text ?? ""
+        let currentCnpj = cnpj.input.text ?? ""
+        let currentPhone = phone.input.text ?? ""
+        let time = timeDelivery.getTimeDeliveryText()
+
+        return Fornecedor(cnpj: currentCnpj,
+                nomeFantasia: currentName,
+                prazoEntrega: time,
+                telefone: currentPhone)
     }
 }
 
