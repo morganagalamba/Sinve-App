@@ -9,7 +9,7 @@ import UIKit
 
 class AddProductView: UIView {
     
-    var delegate: AddProviderProtocol?
+    public var fornecedor: Fornecedor?
     
     let mainStack: UIStackView = {
         let stack = UIStackView()
@@ -139,21 +139,28 @@ class AddProductView: UIView {
         let baseURl = "https://sinve-back-production.up.railway.app/"
         let path = "cadastro-de-produto"
         
+        var quantidade = 0
+        var preco = 0
+        if let amount = self.amount.input.text, let price = self.price.input.text {
+            quantidade = Int(amount) ?? 0
+            preco = Int(price) ?? 0
+        }
+   
         let parametros: [String: Any] = [
             "produto": [
-                    "nome": "Ponta de lapiseira 0.7 faber castel",
-                    "codigo": "7891360472742",
-                    "categoria": "Variados",
-                    "dataValidade": "10/06/2023",
-                    "quantidade": 15,
-                    "precoPorUnidade": 5,
+                "nome": self.name.input.text ,
+                "codigo": self.code.input.text,
+                "categoria": self.category.input.text,
+                "dataValidade": self.date.input.text,
+                "quantidade": quantidade,
+                "precoPorUnidade": preco,
                     
             ],
             "fornecedor": [
-                "CNPJ": "0918138319/001",
-                "nomeFantasia": "Acerola",
-                "prazoEntrega": 30,
-                "telefone": "81 9100-0000"
+                "CNPJ": fornecedor?.cnpj,
+                "nomeFantasia": fornecedor?.nomeFantasia,
+                "prazoEntrega": fornecedor?.prazoEntrega,
+                "telefone": fornecedor?.telefone
             ]
         ]
         
@@ -170,16 +177,14 @@ class AddProductView: UIView {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
-            if let response = response {
-                print(response)
-            }
-            
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     print(json)
                 } catch {
+                    
                     print(error)
+                    
                 }
             }
         }.resume()

@@ -95,13 +95,20 @@ extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
             return items[row]
         } else {
             return fornecedores[row].nomeFantasia
+            
         }
         
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selected = items[row]
+        if pickerView.tag == 1 {
+            let selected = items[row]
+            addProductView.category.input.text = selected
+        } else {
+            let provider = fornecedores[row].nomeFantasia
+            addProductView.provider.input.text = provider
+            addProductView.fornecedor = fornecedores[row]
+        }    
         
-        addProductView.category.input.text = selected
     }
 }
