@@ -11,6 +11,7 @@ class StorageViewController: UITableViewController {
     
     let searchBar:UISearchController = UISearchController()
     var estoque: [Estoque] = []
+    var helperEstoque: [Estoque] = []
     var submitButton = UIButton()
     
     public var addProduct: UIButton = {
@@ -59,15 +60,12 @@ class StorageViewController: UITableViewController {
     }
     
     func setupConstraints(){
-        
         addProduct.bottomAnchor.constraint(equalTo: view.window?.bottomAnchor ?? view.bottomAnchor, constant: -100).isActive = true
         addProduct.centerXAnchor.constraint(equalTo: view.window?.centerXAnchor ?? view.centerXAnchor).isActive = true
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return estoque.count
+        return helperEstoque.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,8 +73,8 @@ class StorageViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        let idealQuantidy = estoque[indexPath.row].estoqueIdeal
-        let quantidy = estoque[indexPath.row].quantidade
+        let idealQuantidy = helperEstoque[indexPath.row].estoqueIdeal
+        let quantidy = helperEstoque[indexPath.row].quantidade
         cell.quantidy.text = String(quantidy)
         
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 10 , weight: .bold, scale: .small)
@@ -103,7 +101,7 @@ class StorageViewController: UITableViewController {
             cell.quantidy.attributedText = fullString
         }
         
-        cell.productName.text = estoque[indexPath.row].nome
+        cell.productName.text = helperEstoque[indexPath.row].nome
         
         cell.quantidyIdeal.text = String(idealQuantidy)
         
@@ -121,6 +119,7 @@ class StorageViewController: UITableViewController {
 
             if let result = try? JSONDecoder().decode([Estoque].self, from: data!) {
                 self.estoque = result
+                self.helperEstoque = result
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -143,12 +142,13 @@ class StorageViewController: UITableViewController {
 
 extension StorageViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchBar.searchBar.text else {
-            return
+        guard let text = searchBar.searchBar.text else { return }
+        
+        let newEstoque = estoque.filter { estoq in
+            return estoq.nome.hasPrefix(text)
         }
-        //usar text pra procurar
+        
+        self.helperEstoque = newEstoque
         self.tableView.reloadData()
     }
-    
-    
 }
