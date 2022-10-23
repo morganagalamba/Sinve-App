@@ -37,6 +37,14 @@ class StorageViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fillStorage()
+    }
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        fillStorage()
+    }
+    
     func setupConstraints(){
         addProduct.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 600).isActive = true
         addProduct.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

@@ -12,6 +12,8 @@
 		0D79FE202903A5E200631E5E /* TimeDelivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1F2903A5E200631E5E /* TimeDelivery.swift */; };
 		D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2128E2503600940F7C /* ScannerViewController.swift */; };
 		D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProviderViewController.swift */; };
+		D7282AE32904760F00FE7223 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7282AE22904760F00FE7223 /* AddProductView.swift */; };
+		D7282AE52905A24400FE7223 /* didAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7282AE42905A24400FE7223 /* didAddViewController.swift */; };
 		D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */; };
 		D72ABF3028E4F2D900F12500 /* FinalSaleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */; };
 		D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */; };
@@ -61,6 +63,8 @@
 		0D79FE1F2903A5E200631E5E /* TimeDelivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDelivery.swift; sourceTree = "<group>"; };
 		D71C5A2128E2503600940F7C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D71C5A2328E250B300940F7C /* ProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewController.swift; sourceTree = "<group>"; };
+		D7282AE22904760F00FE7223 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		D7282AE42905A24400FE7223 /* didAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = didAddViewController.swift; sourceTree = "<group>"; };
 		D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleViewController.swift; sourceTree = "<group>"; };
 		D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalSaleTableViewController.swift; sourceTree = "<group>"; };
 		D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleTableViewCell.swift; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				D7E5215F28F9E2D5007078AC /* StorageViewController.swift */,
 				D7B8CFF728FEFF28004050BE /* StorageTableViewCell.swift */,
 				D7B8D00128FFA743004050BE /* AddProductViewController.swift */,
+				D7282AE22904760F00FE7223 /* AddProductView.swift */,
+				D7282AE42905A24400FE7223 /* didAddViewController.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7282AE52905A24400FE7223 /* didAddViewController.swift in Sources */,
 				D7DE377228DC052F00291AFE /* ViewController.swift in Sources */,
 				D765841428F3B16F00A33C38 /* Venda.swift in Sources */,
 				D7B8D00228FFA743004050BE /* AddProductViewController.swift in Sources */,
@@ -378,6 +385,7 @@
 				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
 				D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */,
 				D7B8D00028FFA72B004050BE /* AddProviderViewController.swift in Sources */,
+				D7282AE32904760F00FE7223 /* AddProductView.swift in Sources */,
 				D765841228F3A9A400A33C38 /* PaymentViewController.swift in Sources */,
 				0D79FE1C290396E000631E5E /* AddProviderView.swift in Sources */,
 				D7B8CFFE28FF4065004050BE /* Fornecedor.swift in Sources */,
