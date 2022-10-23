@@ -8,6 +8,14 @@
 import UIKit
 
 class TimeDelivery: UIView {
+
+    let timeDeliveryText: Int = {
+        let isMonth = typeInput.text == "Dias" ? false : true
+        if isMonth {
+            return 30 * Int(input.text)
+        }
+        return Int(input.text)
+    }
     
     let mainStack: UIStackView = {
         let stack = UIStackView()

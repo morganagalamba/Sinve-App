@@ -71,9 +71,56 @@ extension AddProviderViewController: UIPickerViewDelegate, UIPickerViewDataSourc
 }
 
 extension AddProviderViewController: AddProviderProtocol {
+
+    struct Constants {
+        static let PROVIDER_URL = "https://sinve-back-production.up.railway.app/fornecedor"
+        static let PROVIDER_REQUEST = "POST"
+    }
     
     func didUserTapCreateProvider() {
-        print("aqui")
+        // um manager apiCaller foi com deus.
+        
+        let name = addProviderView.nameText
+        let cnpj = addProviderView.cnpjText
+        let phone = addProviderView.phoneText
+        let time = addProviderView.timeToWait
+
+        //	CNPJ: string,
+        //	nomeFantasia: string,
+        //	prazoEntrega: number,
+        //	telefone: string
+
+        let parameters: [String: Any] = [
+            "nomeFantasia": name,
+            "prazoEntrega": time,
+            "telefone": phone,
+            "CNPJ": cnpj
+        ]
+
+        guard let body = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+
+        var request = URLRequest(url: Constants.PROVIDER_URL)
+        request.httpMethod = Constants.PROVIDER_REQUEST
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response {
+                print(response)
+            }
+
+            guard let data = data else {
+                return
+            }
+
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print(json)
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
     }
 
 }

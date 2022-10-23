@@ -12,7 +12,23 @@ import UIKit
 class AddProviderView: UIView {
     
     var delegate: AddProviderProtocol?
-    
+
+    var nameText: String = {
+        return name.input.text ?? ""
+    }
+
+    var cnpjText: String = {
+        return cnpj.input.text ?? ""
+    }
+
+    var phoneText: String = {
+        return phone.input.text ?? ""
+    }
+
+    var timeToWait: Int = {
+        return timeDelivery.timeDeliveryText
+    }
+
     let mainStack: UIStackView = {
         let stack = UIStackView()
         stack.distribution = .fillEqually
