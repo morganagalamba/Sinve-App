@@ -95,7 +95,8 @@ class TimeDelivery: UIView {
     }
 
     func getTimeDeliveryText() -> Int {
-        let isMonth = typeInput.text == "Dias" ? false : true
+        guard let type = typeInput.text else { return }
+        let isMonth = type == "Dias" ? false : true
         if isMonth {
             return 30 * (Int(input.text ?? "0") ?? 0)
         }
