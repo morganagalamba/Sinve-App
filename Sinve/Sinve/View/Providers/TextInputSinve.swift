@@ -36,7 +36,7 @@ class TextInputSinve: UIView {
         text.font = UIFont.systemFont(ofSize: 17)
         text.layer.masksToBounds = true
         text.layer.cornerRadius = 10
-        text.textColor = UIColor(named: "inputTextColor")
+        text.textColor = .black
         text.backgroundColor = UIColor(named: "inputColor")
         return text
     }()
@@ -73,6 +73,12 @@ extension TextInputSinve {
     func configure(with model: TextInputSinveModel){
         input.keyboardType = model.keyboard
         input.placeholder = model.placeholder
+        
+        input.attributedPlaceholder = NSAttributedString(
+            string: model.placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "inputTextColor") ?? .black]
+        )
+        
         name.text = model.title
     }
 }

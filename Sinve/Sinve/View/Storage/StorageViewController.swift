@@ -6,11 +6,18 @@
 //
 
 import UIKit
+import UserNotifications
+
 
 class StorageViewController: UITableViewController {
     
     let searchBar:UISearchController = UISearchController()
-    var estoque: [Estoque] = []
+    var estoque: [Estoque] = [] {
+        didSet {
+            self.notificateWhichProductNeedCare()
+        }
+    }
+    var helperEstoque: [Estoque] = []
     var submitButton = UIButton()
     
     public var addProduct: UIButton = {
@@ -19,16 +26,11 @@ class StorageViewController: UITableViewController {
         button.setTitle("Cadastrar Produto", for: .normal)
         button.configuration = UIButton.Configuration.filled()
         button.backgroundColor = UIColor(named: "BackGround")
-        //button.addTarget(self, action:#selector(addProd(_:)), for: .touchUpInside)
-        //let panner = UIPanGestureRecognizer(target: self, action: #selector(panDidFire))
-        //button.addGestureRecognizer(panner)
-       
         return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillStorage()
         searchBar.searchResultsUpdater = self
         navigationItem.searchController =  searchBar
         tableView.register(StorageTableViewCell.self, forCellReuseIdentifier: StorageTableViewCell.identifier)
@@ -36,7 +38,12 @@ class StorageViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Estoque"
-               
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [
+            .alert, .sound, .badge
+        ]) { success, _ in
+            guard success else { return }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,21 +60,14 @@ class StorageViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         fillStorage()
     }
-    
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        fillStorage()
-    }
-    
-    func setupConstraints(){
         
+    func setupConstraints(){
         addProduct.bottomAnchor.constraint(equalTo: view.window?.bottomAnchor ?? view.bottomAnchor, constant: -100).isActive = true
         addProduct.centerXAnchor.constraint(equalTo: view.window?.centerXAnchor ?? view.centerXAnchor).isActive = true
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return estoque.count
+        return helperEstoque.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,8 +75,8 @@ class StorageViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        let idealQuantidy = estoque[indexPath.row].estoqueIdeal
-        let quantidy = estoque[indexPath.row].quantidade
+        let idealQuantidy = helperEstoque[indexPath.row].estoqueIdeal
+        let quantidy = helperEstoque[indexPath.row].quantidade
         cell.quantidy.text = String(quantidy)
         
         let symbolConfig = UIImage.SymbolConfiguration(pointSize: 10 , weight: .bold, scale: .small)
@@ -103,7 +103,7 @@ class StorageViewController: UITableViewController {
             cell.quantidy.attributedText = fullString
         }
         
-        cell.productName.text = estoque[indexPath.row].nome
+        cell.productName.text = helperEstoque[indexPath.row].nome
         
         cell.quantidyIdeal.text = String(idealQuantidy)
         
@@ -121,6 +121,7 @@ class StorageViewController: UITableViewController {
 
             if let result = try? JSONDecoder().decode([Estoque].self, from: data!) {
                 self.estoque = result
+                self.helperEstoque = result
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -130,7 +131,6 @@ class StorageViewController: UITableViewController {
             
         }
         task.resume()
-    
     }
     
     @objc func addProd(_ sender : UIButton) {
@@ -138,17 +138,46 @@ class StorageViewController: UITableViewController {
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)
     }
-
+    
+    private func notificateWhichProductNeedCare(){
+        let productsToCare = estoque.filter{ currEstoque in
+            return currEstoque.quantidade - currEstoque.estoqueIdeal <= 0
+        }
+        
+        productsToCare.forEach{ productToCare in
+            let content = UNMutableNotificationContent()
+            content.title = "Atenção, estoque minimo!"
+            content.body = "O produto \(productToCare.nome) está com estoque abaixo. Solicite \(productToCare.estoqueIdeal) produto ao fornecedor."
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                                content: content,
+                                                trigger: trigger)
+        
+            
+            UNUserNotificationCenter.current().add(request)
+        }
+    }
 }
 
 extension StorageViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchBar.searchBar.text else {
-            return
+        guard let text = searchBar.searchBar.text else { return }
+        
+        let newEstoque = estoque.filter { estoq in
+            return estoq.nome.hasPrefix(text)
         }
-        //usar text pra procurar
+        
+        self.helperEstoque = newEstoque
         self.tableView.reloadData()
     }
+}
+
+extension StorageViewController: UNUserNotificationCenterDelegate {
     
-    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound,.banner, .list, .badge])
+    }
 }
