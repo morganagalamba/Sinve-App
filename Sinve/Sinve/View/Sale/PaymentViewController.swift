@@ -13,7 +13,7 @@ class PaymentViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = UIButton.Configuration.filled()
-        button.setTitle("Nova venda", for: .normal)
+        button.setTitle("Voltar para vendas", for: .normal)
         button.backgroundColor = UIColor.clear
         button.addTarget(self, action:#selector(okPressed), for: .touchUpInside)
         return button
