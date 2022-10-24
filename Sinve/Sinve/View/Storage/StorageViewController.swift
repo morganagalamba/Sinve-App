@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import UserNotifications
+
 
 class StorageViewController: UITableViewController {
     
     let searchBar:UISearchController = UISearchController()
-    var estoque: [Estoque] = []
+    var estoque: [Estoque] = [] {
+        didSet {
+            self.notificateWhichProductNeedCare()
+        }
+    }
     var helperEstoque: [Estoque] = []
     var submitButton = UIButton()
     
@@ -20,16 +26,11 @@ class StorageViewController: UITableViewController {
         button.setTitle("Cadastrar Produto", for: .normal)
         button.configuration = UIButton.Configuration.filled()
         button.backgroundColor = UIColor(named: "BackGround")
-        //button.addTarget(self, action:#selector(addProd(_:)), for: .touchUpInside)
-        //let panner = UIPanGestureRecognizer(target: self, action: #selector(panDidFire))
-        //button.addGestureRecognizer(panner)
-       
         return button
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillStorage()
         searchBar.searchResultsUpdater = self
         navigationItem.searchController =  searchBar
         tableView.register(StorageTableViewCell.self, forCellReuseIdentifier: StorageTableViewCell.identifier)
@@ -37,7 +38,12 @@ class StorageViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Estoque"
-               
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [
+            .alert, .sound, .badge
+        ]) { success, _ in
+            guard success else { return }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,11 +60,7 @@ class StorageViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         fillStorage()
     }
-    
-    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        fillStorage()
-    }
-    
+        
     func setupConstraints(){
         addProduct.bottomAnchor.constraint(equalTo: view.window?.bottomAnchor ?? view.bottomAnchor, constant: -100).isActive = true
         addProduct.centerXAnchor.constraint(equalTo: view.window?.centerXAnchor ?? view.centerXAnchor).isActive = true
@@ -136,7 +138,26 @@ class StorageViewController: UITableViewController {
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)
     }
-
+    
+    private func notificateWhichProductNeedCare(){
+        let productsToCare = estoque.filter{ currEstoque in
+            return currEstoque.quantidade - currEstoque.estoqueIdeal <= 0
+        }
+        
+        productsToCare.forEach{ productToCare in
+            let content = UNMutableNotificationContent()
+            content.title = "Atenção, estoque minimo!"
+            content.body = "O produto \(productToCare.nome) está com estoque abaixo. Solicite \(productToCare.estoqueIdeal) produto ao fornecedor."
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: UUID().uuidString,
+                                                content: content,
+                                                trigger: trigger)
+        
+            
+            UNUserNotificationCenter.current().add(request)
+        }
+    }
 }
 
 extension StorageViewController: UISearchResultsUpdating {
@@ -149,5 +170,14 @@ extension StorageViewController: UISearchResultsUpdating {
         
         self.helperEstoque = newEstoque
         self.tableView.reloadData()
+    }
+}
+
+extension StorageViewController: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound,.banner, .list, .badge])
     }
 }
