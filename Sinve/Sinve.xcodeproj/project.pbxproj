@@ -10,6 +10,11 @@
 		0D79FE1C290396E000631E5E /* AddProviderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1B290396E000631E5E /* AddProviderView.swift */; };
 		0D79FE1E29039AB600631E5E /* TextInputSinve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1D29039AB600631E5E /* TextInputSinve.swift */; };
 		0D79FE202903A5E200631E5E /* TimeDelivery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D79FE1F2903A5E200631E5E /* TimeDelivery.swift */; };
+		BFE6BE0E2905FD0E007031C9 /* Sales.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6BE0D2905FD0E007031C9 /* Sales.swift */; };
+		BFE6BE102905FD58007031C9 /* SaleViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6BE0F2905FD58007031C9 /* SaleViewController+TableView.swift */; };
+		BFE6BE122905FD7A007031C9 /* SalesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6BE112905FD7A007031C9 /* SalesTableViewCell.swift */; };
+		BFE6BE18290616C7007031C9 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6BE17290616C7007031C9 /* ProductsViewController.swift */; };
+		BFE6BE1A29061B47007031C9 /* ProductsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE6BE1929061B47007031C9 /* ProductsTableCell.swift */; };
 		D71C5A2228E2503600940F7C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2128E2503600940F7C /* ScannerViewController.swift */; };
 		D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C5A2328E250B300940F7C /* ProviderViewController.swift */; };
 		D7282AE32904760F00FE7223 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7282AE22904760F00FE7223 /* AddProductView.swift */; };
@@ -61,6 +66,11 @@
 		0D79FE1B290396E000631E5E /* AddProviderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProviderView.swift; sourceTree = "<group>"; };
 		0D79FE1D29039AB600631E5E /* TextInputSinve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputSinve.swift; sourceTree = "<group>"; };
 		0D79FE1F2903A5E200631E5E /* TimeDelivery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDelivery.swift; sourceTree = "<group>"; };
+		BFE6BE0D2905FD0E007031C9 /* Sales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sales.swift; sourceTree = "<group>"; };
+		BFE6BE0F2905FD58007031C9 /* SaleViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SaleViewController+TableView.swift"; sourceTree = "<group>"; };
+		BFE6BE112905FD7A007031C9 /* SalesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesTableViewCell.swift; sourceTree = "<group>"; };
+		BFE6BE17290616C7007031C9 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		BFE6BE1929061B47007031C9 /* ProductsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableCell.swift; sourceTree = "<group>"; };
 		D71C5A2128E2503600940F7C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		D71C5A2328E250B300940F7C /* ProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderViewController.swift; sourceTree = "<group>"; };
 		D7282AE22904760F00FE7223 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
@@ -120,6 +130,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFE6BE132905FD84007031C9 /* Sales */ = {
+			isa = PBXGroup;
+			children = (
+				D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */,
+				BFE6BE0F2905FD58007031C9 /* SaleViewController+TableView.swift */,
+				BFE6BE112905FD7A007031C9 /* SalesTableViewCell.swift */,
+				BFE6BE17290616C7007031C9 /* ProductsViewController.swift */,
+				BFE6BE1929061B47007031C9 /* ProductsTableCell.swift */,
+			);
+			path = Sales;
+			sourceTree = "<group>";
+		};
 		D72ABF3328E5ED9800F12500 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +165,7 @@
 		D72ABF3528E5EDD700F12500 /* Sale */ = {
 			isa = PBXGroup;
 			children = (
-				D72ABF2B28E4F2A500F12500 /* SaleViewController.swift */,
+				BFE6BE132905FD84007031C9 /* Sales */,
 				D71C5A2128E2503600940F7C /* ScannerViewController.swift */,
 				D72ABF2F28E4F2D900F12500 /* FinalSaleTableViewController.swift */,
 				D72ABF3128E5ED8600F12500 /* SaleTableViewCell.swift */,
@@ -161,6 +183,7 @@
 				D765841328F3B16F00A33C38 /* Venda.swift */,
 				D7B8CFF928FF2C61004050BE /* Estoque.swift */,
 				D7B8CFFD28FF4065004050BE /* Fornecedor.swift */,
+				BFE6BE0D2905FD0E007031C9 /* Sales.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE6BE102905FD58007031C9 /* SaleViewController+TableView.swift in Sources */,
 				D7282AE52905A24400FE7223 /* didAddViewController.swift in Sources */,
 				D7DE377228DC052F00291AFE /* ViewController.swift in Sources */,
 				D765841428F3B16F00A33C38 /* Venda.swift in Sources */,
@@ -380,8 +404,12 @@
 				D7B8CFFC28FF3F3A004050BE /* ProviderTableViewCell.swift in Sources */,
 				D72ABF2C28E4F2A500F12500 /* SaleViewController.swift in Sources */,
 				D79A426F28EBA217009D26F7 /* TotalView.swift in Sources */,
+				BFE6BE18290616C7007031C9 /* ProductsViewController.swift in Sources */,
+				BFE6BE1A29061B47007031C9 /* ProductsTableCell.swift in Sources */,
 				0D79FE1E29039AB600631E5E /* TextInputSinve.swift in Sources */,
+				BFE6BE122905FD7A007031C9 /* SalesTableViewCell.swift in Sources */,
 				D72ABF3228E5ED8600F12500 /* SaleTableViewCell.swift in Sources */,
+				BFE6BE0E2905FD0E007031C9 /* Sales.swift in Sources */,
 				D7DE376E28DC052F00291AFE /* AppDelegate.swift in Sources */,
 				D71C5A2428E250B300940F7C /* ProviderViewController.swift in Sources */,
 				D7B8D00028FFA72B004050BE /* AddProviderViewController.swift in Sources */,
