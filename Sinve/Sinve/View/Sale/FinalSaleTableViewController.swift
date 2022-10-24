@@ -18,7 +18,7 @@ class FinalSaleTableViewController: UITableViewController {
         button.configuration = UIButton.Configuration.filled()
         button.setTitle("Finalizar compra", for: .normal)
         button.backgroundColor = UIColor.clear
-        button.addTarget(self, action:#selector(finalizeSale), for: .touchUpInside)
+        //button.addTarget(self, action:#selector(finalizeSale), for: .touchUpInside)
         return button
     }()
     
@@ -39,13 +39,24 @@ class FinalSaleTableViewController: UITableViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         self.title = "Carrinho"
         view.backgroundColor = UIColor(named: "BackGround")
-        view.addSubview(finalize)
+        //view.addSubview(finalize)
+        //setupConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        view.window?.addSubview(finalize)
+        finalize.addTarget(self, action:#selector(finalizeSale), for: .touchUpInside)
         setupConstraints()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.finalize.removeFromSuperview()
+    }
+    
     private func setupConstraints(){
-        finalize.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 750).isActive = true
-        finalize.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        finalize.bottomAnchor.constraint(equalTo: view.window?.bottomAnchor ?? view.bottomAnchor, constant: -100).isActive = true
+        finalize.centerXAnchor.constraint(equalTo: view.window?.centerXAnchor ?? view.centerXAnchor).isActive = true
     }
     
     // MARK: - Table view data source
