@@ -28,7 +28,7 @@ class ViewController: UITabBarController, UITabBarControllerDelegate {
         
 
         let tabTwo = UINavigationController(rootViewController: SaleViewController())
-        let tabTwoBarItem2 = UITabBarItem(title: "Vendas", image: UIImage(systemName: "square.grid.2x2"), selectedImage: UIImage(systemName: "square.grid.2x2.fill"))
+        let tabTwoBarItem2 = UITabBarItem(title: "Vendas", image: UIImage(systemName: "dollarsign.square"), selectedImage: UIImage(systemName: "dollarsign.square.fill"))
         tabTwo.tabBarItem = tabTwoBarItem2
         
         
